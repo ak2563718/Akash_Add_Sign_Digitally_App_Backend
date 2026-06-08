@@ -6,7 +6,6 @@ import bcrypt from 'bcrypt'
 import { accessToken, decodeaccessToken, refreshToken, decoderefreshToken } from '../utils/tokenCreation.js'
 
 export const userLogin = asyncHandler(async(req, res, next)=>{
-    console.log(req.body)
      const { email, password } = req.body;
     if( !email){
         return next(new AppError('Please provide  email for login',404))
@@ -86,6 +85,16 @@ export const userLogout = asyncHandler(async(req, res, next)=>{
     if(!token){
         return next(new AppError('no token found',401))
     }
+    const value = decoderefreshToken(token);
+    const id = value.id;
+    const users = await prisma.user.update({
+        where:{
+            id
+        },
+        data:{
+            refreshToken:null,
+        }
+    })
     res.clearCookie('refresh',{
         httpOnly:true,
         sameSite:'none',

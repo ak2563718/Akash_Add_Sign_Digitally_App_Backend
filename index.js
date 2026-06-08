@@ -2,6 +2,8 @@ import express from 'express';
 import 'dotenv/config';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+import user from './routes/user.Routes.js'
+import { errorMiddleware } from './middleware/errorMiddleware.js'
 
 const app = express();
 
@@ -13,6 +15,8 @@ app.use(cors({
 }))
 app.use(cookieParser());
 
+app.use('/api/auth',user)
+app.use(errorMiddleware);
 const port = process.env.PORT;
 
 app.listen(port,()=>{

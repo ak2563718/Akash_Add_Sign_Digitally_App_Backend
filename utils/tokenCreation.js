@@ -2,6 +2,7 @@ import  jwt  from 'jsonwebtoken';
 import "dotenv/config"
 const secretkey = process.env.SECRET_KEY;
 
+
 export const accessToken = (user)=>{
     return jwt.sign({
         id:user.id,
