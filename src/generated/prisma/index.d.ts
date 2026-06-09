@@ -902,6 +902,8 @@ export namespace Prisma {
     provider: $Enums.AuthProvider | null
     providerId: string | null
     refreshToken: string | null
+    otp: string | null
+    otpvalidity: Date | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -915,6 +917,8 @@ export namespace Prisma {
     provider: $Enums.AuthProvider | null
     providerId: string | null
     refreshToken: string | null
+    otp: string | null
+    otpvalidity: Date | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -928,6 +932,8 @@ export namespace Prisma {
     provider: number
     providerId: number
     refreshToken: number
+    otp: number
+    otpvalidity: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -943,6 +949,8 @@ export namespace Prisma {
     provider?: true
     providerId?: true
     refreshToken?: true
+    otp?: true
+    otpvalidity?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -956,6 +964,8 @@ export namespace Prisma {
     provider?: true
     providerId?: true
     refreshToken?: true
+    otp?: true
+    otpvalidity?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -969,6 +979,8 @@ export namespace Prisma {
     provider?: true
     providerId?: true
     refreshToken?: true
+    otp?: true
+    otpvalidity?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -1055,6 +1067,8 @@ export namespace Prisma {
     provider: $Enums.AuthProvider
     providerId: string | null
     refreshToken: string | null
+    otp: string | null
+    otpvalidity: Date | null
     createdAt: Date
     updatedAt: Date
     _count: UserCountAggregateOutputType | null
@@ -1085,6 +1099,8 @@ export namespace Prisma {
     provider?: boolean
     providerId?: boolean
     refreshToken?: boolean
+    otp?: boolean
+    otpvalidity?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
@@ -1098,6 +1114,8 @@ export namespace Prisma {
     provider?: boolean
     providerId?: boolean
     refreshToken?: boolean
+    otp?: boolean
+    otpvalidity?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
@@ -1111,6 +1129,8 @@ export namespace Prisma {
     provider?: boolean
     providerId?: boolean
     refreshToken?: boolean
+    otp?: boolean
+    otpvalidity?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
@@ -1124,11 +1144,13 @@ export namespace Prisma {
     provider?: boolean
     providerId?: boolean
     refreshToken?: boolean
+    otp?: boolean
+    otpvalidity?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "username" | "password" | "provider" | "providerId" | "refreshToken" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "username" | "password" | "provider" | "providerId" | "refreshToken" | "otp" | "otpvalidity" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
@@ -1142,6 +1164,8 @@ export namespace Prisma {
       provider: $Enums.AuthProvider
       providerId: string | null
       refreshToken: string | null
+      otp: string | null
+      otpvalidity: Date | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["user"]>
@@ -1575,6 +1599,8 @@ export namespace Prisma {
     readonly provider: FieldRef<"User", 'AuthProvider'>
     readonly providerId: FieldRef<"User", 'String'>
     readonly refreshToken: FieldRef<"User", 'String'>
+    readonly otp: FieldRef<"User", 'String'>
+    readonly otpvalidity: FieldRef<"User", 'DateTime'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
   }
@@ -1971,6 +1997,8 @@ export namespace Prisma {
     provider: 'provider',
     providerId: 'providerId',
     refreshToken: 'refreshToken',
+    otp: 'otp',
+    otpvalidity: 'otpvalidity',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -2078,6 +2106,8 @@ export namespace Prisma {
     provider?: EnumAuthProviderFilter<"User"> | $Enums.AuthProvider
     providerId?: StringNullableFilter<"User"> | string | null
     refreshToken?: StringNullableFilter<"User"> | string | null
+    otp?: StringNullableFilter<"User"> | string | null
+    otpvalidity?: DateTimeNullableFilter<"User"> | Date | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
   }
@@ -2091,6 +2121,8 @@ export namespace Prisma {
     provider?: SortOrder
     providerId?: SortOrderInput | SortOrder
     refreshToken?: SortOrderInput | SortOrder
+    otp?: SortOrderInput | SortOrder
+    otpvalidity?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -2107,6 +2139,8 @@ export namespace Prisma {
     provider?: EnumAuthProviderFilter<"User"> | $Enums.AuthProvider
     providerId?: StringNullableFilter<"User"> | string | null
     refreshToken?: StringNullableFilter<"User"> | string | null
+    otp?: StringNullableFilter<"User"> | string | null
+    otpvalidity?: DateTimeNullableFilter<"User"> | Date | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
   }, "id" | "email" | "username">
@@ -2120,6 +2154,8 @@ export namespace Prisma {
     provider?: SortOrder
     providerId?: SortOrderInput | SortOrder
     refreshToken?: SortOrderInput | SortOrder
+    otp?: SortOrderInput | SortOrder
+    otpvalidity?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
@@ -2139,6 +2175,8 @@ export namespace Prisma {
     provider?: EnumAuthProviderWithAggregatesFilter<"User"> | $Enums.AuthProvider
     providerId?: StringNullableWithAggregatesFilter<"User"> | string | null
     refreshToken?: StringNullableWithAggregatesFilter<"User"> | string | null
+    otp?: StringNullableWithAggregatesFilter<"User"> | string | null
+    otpvalidity?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
@@ -2152,6 +2190,8 @@ export namespace Prisma {
     provider?: $Enums.AuthProvider
     providerId?: string | null
     refreshToken?: string | null
+    otp?: string | null
+    otpvalidity?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -2165,6 +2205,8 @@ export namespace Prisma {
     provider?: $Enums.AuthProvider
     providerId?: string | null
     refreshToken?: string | null
+    otp?: string | null
+    otpvalidity?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -2178,6 +2220,8 @@ export namespace Prisma {
     provider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
     providerId?: NullableStringFieldUpdateOperationsInput | string | null
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    otp?: NullableStringFieldUpdateOperationsInput | string | null
+    otpvalidity?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -2191,6 +2235,8 @@ export namespace Prisma {
     provider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
     providerId?: NullableStringFieldUpdateOperationsInput | string | null
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    otp?: NullableStringFieldUpdateOperationsInput | string | null
+    otpvalidity?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -2204,6 +2250,8 @@ export namespace Prisma {
     provider?: $Enums.AuthProvider
     providerId?: string | null
     refreshToken?: string | null
+    otp?: string | null
+    otpvalidity?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -2217,6 +2265,8 @@ export namespace Prisma {
     provider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
     providerId?: NullableStringFieldUpdateOperationsInput | string | null
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    otp?: NullableStringFieldUpdateOperationsInput | string | null
+    otpvalidity?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -2230,6 +2280,8 @@ export namespace Prisma {
     provider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
     providerId?: NullableStringFieldUpdateOperationsInput | string | null
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    otp?: NullableStringFieldUpdateOperationsInput | string | null
+    otpvalidity?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -2271,6 +2323,17 @@ export namespace Prisma {
     not?: NestedEnumAuthProviderFilter<$PrismaModel> | $Enums.AuthProvider
   }
 
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -2296,6 +2359,8 @@ export namespace Prisma {
     provider?: SortOrder
     providerId?: SortOrder
     refreshToken?: SortOrder
+    otp?: SortOrder
+    otpvalidity?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -2309,6 +2374,8 @@ export namespace Prisma {
     provider?: SortOrder
     providerId?: SortOrder
     refreshToken?: SortOrder
+    otp?: SortOrder
+    otpvalidity?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -2322,6 +2389,8 @@ export namespace Prisma {
     provider?: SortOrder
     providerId?: SortOrder
     refreshToken?: SortOrder
+    otp?: SortOrder
+    otpvalidity?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -2372,6 +2441,20 @@ export namespace Prisma {
     _max?: NestedEnumAuthProviderFilter<$PrismaModel>
   }
 
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -2396,6 +2479,10 @@ export namespace Prisma {
 
   export type EnumAuthProviderFieldUpdateOperationsInput = {
     set?: $Enums.AuthProvider
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
   }
 
   export type DateTimeFieldUpdateOperationsInput = {
@@ -2435,6 +2522,17 @@ export namespace Prisma {
     in?: $Enums.AuthProvider[] | ListEnumAuthProviderFieldRefInput<$PrismaModel>
     notIn?: $Enums.AuthProvider[] | ListEnumAuthProviderFieldRefInput<$PrismaModel>
     not?: NestedEnumAuthProviderFilter<$PrismaModel> | $Enums.AuthProvider
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
   export type NestedDateTimeFilter<$PrismaModel = never> = {
@@ -2512,6 +2610,20 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumAuthProviderFilter<$PrismaModel>
     _max?: NestedEnumAuthProviderFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {

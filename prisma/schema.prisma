@@ -16,6 +16,9 @@ model User {
   provider      AuthProvider @default(CREDENTIALS)
   providerId    String?
   refreshToken  String?
+  otp           String?
+  otpvalidity   DateTime?
+  files         File[]
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 }
@@ -23,4 +26,13 @@ model User {
 enum AuthProvider {
   GOOGLE
   CREDENTIALS
+}
+
+model File{
+  id            String  @default(cuid())
+  fileurl       String? 
+  user          User?   @relation(fields: [userId], references: [id])
+  userId        String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 }

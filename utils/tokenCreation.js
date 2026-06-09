@@ -32,3 +32,16 @@ export const decoderefreshToken = (token)=>{
     const decode = jwt.verify(token,secretkey);
     return decode;
 }
+
+
+export const tempEmail = (email) =>{
+    return jwt.sign({
+        email:email
+    },secretkey)
+}
+
+export const decodeEmail = (token) =>{
+    if(!token) return null;
+    const decode = jwt.verify(token, secretkey)
+    return decode;
+}

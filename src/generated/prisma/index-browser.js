@@ -129,6 +129,8 @@ exports.Prisma.UserScalarFieldEnum = {
   provider: 'provider',
   providerId: 'providerId',
   refreshToken: 'refreshToken',
+  otp: 'otp',
+  otpvalidity: 'otpvalidity',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
