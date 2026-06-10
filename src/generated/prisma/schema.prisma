@@ -18,6 +18,8 @@ model User {
   refreshToken String?
   otp          String?
   otpvalidity  DateTime?
+  files        File[]
+  sign         Signature[]
   createdAt    DateTime     @default(now())
   updatedAt    DateTime     @updatedAt
 }
@@ -25,4 +27,22 @@ model User {
 enum AuthProvider {
   GOOGLE
   CREDENTIALS
+}
+
+model File {
+  id        String   @id @default(cuid())
+  fileurl   String?
+  user      User?    @relation(fields: [userId], references: [id])
+  userId    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Signature {
+  id           String   @id @default(cuid())
+  signatureurl String?
+  user         User?    @relation(fields: [userId], references: [id])
+  userId       String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 }
