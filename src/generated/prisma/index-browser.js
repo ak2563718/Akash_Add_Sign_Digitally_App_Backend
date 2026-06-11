@@ -138,6 +138,7 @@ exports.Prisma.UserScalarFieldEnum = {
 exports.Prisma.FileScalarFieldEnum = {
   id: 'id',
   fileurl: 'fileurl',
+  filename: 'filename',
   userId: 'userId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'

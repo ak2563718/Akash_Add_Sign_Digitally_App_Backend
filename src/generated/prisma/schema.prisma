@@ -31,7 +31,8 @@ enum AuthProvider {
 
 model File {
   id        String   @id @default(cuid())
-  fileurl   String?
+  fileurl   String
+  filename  String
   user      User?    @relation(fields: [userId], references: [id])
   userId    String?
   createdAt DateTime @default(now())
