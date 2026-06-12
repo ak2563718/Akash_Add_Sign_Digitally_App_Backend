@@ -3,7 +3,7 @@ import validator from 'validator'
 
 export const validateusername = async(username)=>{
        if(!/^[a-zA-Z0-9]+$/.test(username)){
-        return next(new AppError('Username must be alphanumeric',400))
+        throw new AppError('Username must be alphanumeric',400)
       } 
 }
 

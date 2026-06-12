@@ -21,11 +21,11 @@ export const userLogin = asyncHandler(async(req, res, next)=>{
         }
     })
     if(!user){
-        return next(new AppError('User not found',404))
+        return next(new AppError('Email not Registered.!',404))
     }
     const matched = await bcrypt.compare(password,user.password)
     if(!matched){
-        return next(new AppError('Wrong Password',400))
+        return next(new AppError('Incorrect Password.!',400))
     }
     const access = await accessToken(user);
     const refresh = await refreshToken(user);
@@ -184,6 +184,14 @@ export const forgotpassword = asyncHandler(async(req, res, next)=>{
     const { email } = req.body;
     if(!email){
         return next(new AppError("Please provide email for Otp", 400))
+    }
+    const found = await prisma.user.findUnique({
+        where:{
+            email
+        }
+    })
+    if(!found){
+        return next(new AppError("Email is not registered on our platform", 400))
     }
     validateEmail(email);
     const otp = await generateOtp();
