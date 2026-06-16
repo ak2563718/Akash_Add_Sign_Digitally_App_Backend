@@ -5,7 +5,7 @@ import { upload } from '../config/multer.js';
 const router = express.Router();
 router.post('/uploadfile',upload.single('file'),uploadfile)
 router.get('/previewfile/:id',previewFile)
-router.post('/addsign',addSignatureToPdf)
+router.post('/addsign/:id',addSignatureToPdf)
 
 
 export default router;

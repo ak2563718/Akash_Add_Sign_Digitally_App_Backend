@@ -8,11 +8,10 @@ import file from './routes/file.Routes.js'
 import { errorMiddleware } from './middleware/errorMiddleware.js'
 
 const app = express();
-
 app.use(express.json())
 app.use(express.urlencoded({extended:false}));
 app.use(cors({
-    origin:['http://localhost:3000','http://192.168.155.104:3000','https://akash-add-sign-digitally-app-fronte.vercel.app'],
+    origin:[process.env.LOCALHOST_URL,'http://192.168.155.104:3000',process.env.FRONTEND_URL],
     credentials:true,
 }))
 app.use(cookieParser());
