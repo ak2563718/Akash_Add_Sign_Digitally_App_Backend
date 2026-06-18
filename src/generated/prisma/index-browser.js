@@ -124,30 +124,36 @@ exports.Prisma.UserScalarFieldEnum = {
   id: 'id',
   name: 'name',
   email: 'email',
-  username: 'username',
+  createdAt: 'createdAt',
   password: 'password',
-  provider: 'provider',
   providerId: 'providerId',
   refreshToken: 'refreshToken',
+  updatedAt: 'updatedAt',
+  username: 'username',
+  provider: 'provider',
   otp: 'otp',
-  otpvalidity: 'otpvalidity',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  otpvalidity: 'otpvalidity'
 };
 
 exports.Prisma.FileScalarFieldEnum = {
   id: 'id',
   fileurl: 'fileurl',
-  filename: 'filename',
   userId: 'userId',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  filename: 'filename'
 };
 
 exports.Prisma.SignatureScalarFieldEnum = {
   id: 'id',
-  signatureurl: 'signatureurl',
+  signatureUrl: 'signatureUrl',
+  page: 'page',
+  x: 'x',
+  y: 'y',
+  width: 'width',
+  height: 'height',
   userId: 'userId',
+  pdfId: 'pdfId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };

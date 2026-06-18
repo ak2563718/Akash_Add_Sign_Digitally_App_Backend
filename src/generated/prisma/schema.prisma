@@ -11,39 +11,50 @@ model User {
   id           String       @id @default(cuid())
   name         String
   email        String       @unique
-  username     String       @unique
+  createdAt    DateTime     @default(now())
   password     String?
-  provider     AuthProvider @default(CREDENTIALS)
   providerId   String?
   refreshToken String?
+  updatedAt    DateTime     @updatedAt
+  username     String       @unique
+  provider     AuthProvider @default(CREDENTIALS)
   otp          String?
   otpvalidity  DateTime?
   files        File[]
-  sign         Signature[]
-  createdAt    DateTime     @default(now())
-  updatedAt    DateTime     @updatedAt
+  Signature    Signature[]
+}
+
+model File {
+  id        String      @id @default(cuid())
+  fileurl   String
+  userId    String?
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+  signature Signature[]
+  filename  String
+  user      User?       @relation(fields: [userId], references: [id])
+}
+
+model Signature {
+  id           String   @id @default(cuid())
+  // Signature  image
+  signatureUrl String
+  // Placement  metadata
+  page         Int
+  x            Float
+  y            Float
+  width        Float
+  height       Float
+  // Relations
+  userId       String?
+  pdfId        String
+  User         User?    @relation(fields: [userId], references: [id])
+  Pdf          File     @relation(fields: [pdfId], references: [id])
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 }
 
 enum AuthProvider {
   GOOGLE
   CREDENTIALS
-}
-
-model File {
-  id        String   @id @default(cuid())
-  fileurl   String
-  filename  String
-  user      User?    @relation(fields: [userId], references: [id])
-  userId    String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
-
-model Signature {
-  id           String   @id @default(cuid())
-  signatureurl String?
-  user         User?    @relation(fields: [userId], references: [id])
-  userId       String?
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
 }

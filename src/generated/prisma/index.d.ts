@@ -1066,12 +1066,12 @@ export namespace Prisma {
 
   export type UserCountOutputType = {
     files: number
-    sign: number
+    Signature: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     files?: boolean | UserCountOutputTypeCountFilesArgs
-    sign?: boolean | UserCountOutputTypeCountSignArgs
+    Signature?: boolean | UserCountOutputTypeCountSignatureArgs
   }
 
   // Custom InputTypes
@@ -1095,7 +1095,38 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountSignArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserCountOutputTypeCountSignatureArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SignatureWhereInput
+  }
+
+
+  /**
+   * Count Type FileCountOutputType
+   */
+
+  export type FileCountOutputType = {
+    signature: number
+  }
+
+  export type FileCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    signature?: boolean | FileCountOutputTypeCountSignatureArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * FileCountOutputType without action
+   */
+  export type FileCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FileCountOutputType
+     */
+    select?: FileCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * FileCountOutputType without action
+   */
+  export type FileCountOutputTypeCountSignatureArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: SignatureWhereInput
   }
 
@@ -1118,45 +1149,45 @@ export namespace Prisma {
     id: string | null
     name: string | null
     email: string | null
-    username: string | null
+    createdAt: Date | null
     password: string | null
-    provider: $Enums.AuthProvider | null
     providerId: string | null
     refreshToken: string | null
+    updatedAt: Date | null
+    username: string | null
+    provider: $Enums.AuthProvider | null
     otp: string | null
     otpvalidity: Date | null
-    createdAt: Date | null
-    updatedAt: Date | null
   }
 
   export type UserMaxAggregateOutputType = {
     id: string | null
     name: string | null
     email: string | null
-    username: string | null
+    createdAt: Date | null
     password: string | null
-    provider: $Enums.AuthProvider | null
     providerId: string | null
     refreshToken: string | null
+    updatedAt: Date | null
+    username: string | null
+    provider: $Enums.AuthProvider | null
     otp: string | null
     otpvalidity: Date | null
-    createdAt: Date | null
-    updatedAt: Date | null
   }
 
   export type UserCountAggregateOutputType = {
     id: number
     name: number
     email: number
-    username: number
+    createdAt: number
     password: number
-    provider: number
     providerId: number
     refreshToken: number
+    updatedAt: number
+    username: number
+    provider: number
     otp: number
     otpvalidity: number
-    createdAt: number
-    updatedAt: number
     _all: number
   }
 
@@ -1165,45 +1196,45 @@ export namespace Prisma {
     id?: true
     name?: true
     email?: true
-    username?: true
+    createdAt?: true
     password?: true
-    provider?: true
     providerId?: true
     refreshToken?: true
+    updatedAt?: true
+    username?: true
+    provider?: true
     otp?: true
     otpvalidity?: true
-    createdAt?: true
-    updatedAt?: true
   }
 
   export type UserMaxAggregateInputType = {
     id?: true
     name?: true
     email?: true
-    username?: true
+    createdAt?: true
     password?: true
-    provider?: true
     providerId?: true
     refreshToken?: true
+    updatedAt?: true
+    username?: true
+    provider?: true
     otp?: true
     otpvalidity?: true
-    createdAt?: true
-    updatedAt?: true
   }
 
   export type UserCountAggregateInputType = {
     id?: true
     name?: true
     email?: true
-    username?: true
+    createdAt?: true
     password?: true
-    provider?: true
     providerId?: true
     refreshToken?: true
+    updatedAt?: true
+    username?: true
+    provider?: true
     otp?: true
     otpvalidity?: true
-    createdAt?: true
-    updatedAt?: true
     _all?: true
   }
 
@@ -1283,15 +1314,15 @@ export namespace Prisma {
     id: string
     name: string
     email: string
-    username: string
+    createdAt: Date
     password: string | null
-    provider: $Enums.AuthProvider
     providerId: string | null
     refreshToken: string | null
+    updatedAt: Date
+    username: string
+    provider: $Enums.AuthProvider
     otp: string | null
     otpvalidity: Date | null
-    createdAt: Date
-    updatedAt: Date
     _count: UserCountAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
@@ -1315,17 +1346,17 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     email?: boolean
-    username?: boolean
+    createdAt?: boolean
     password?: boolean
-    provider?: boolean
     providerId?: boolean
     refreshToken?: boolean
+    updatedAt?: boolean
+    username?: boolean
+    provider?: boolean
     otp?: boolean
     otpvalidity?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
     files?: boolean | User$filesArgs<ExtArgs>
-    sign?: boolean | User$signArgs<ExtArgs>
+    Signature?: boolean | User$SignatureArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1333,51 +1364,51 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     email?: boolean
-    username?: boolean
+    createdAt?: boolean
     password?: boolean
-    provider?: boolean
     providerId?: boolean
     refreshToken?: boolean
+    updatedAt?: boolean
+    username?: boolean
+    provider?: boolean
     otp?: boolean
     otpvalidity?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     email?: boolean
-    username?: boolean
+    createdAt?: boolean
     password?: boolean
-    provider?: boolean
     providerId?: boolean
     refreshToken?: boolean
+    updatedAt?: boolean
+    username?: boolean
+    provider?: boolean
     otp?: boolean
     otpvalidity?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
     id?: boolean
     name?: boolean
     email?: boolean
-    username?: boolean
+    createdAt?: boolean
     password?: boolean
-    provider?: boolean
     providerId?: boolean
     refreshToken?: boolean
+    updatedAt?: boolean
+    username?: boolean
+    provider?: boolean
     otp?: boolean
     otpvalidity?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "username" | "password" | "provider" | "providerId" | "refreshToken" | "otp" | "otpvalidity" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "createdAt" | "password" | "providerId" | "refreshToken" | "updatedAt" | "username" | "provider" | "otp" | "otpvalidity", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     files?: boolean | User$filesArgs<ExtArgs>
-    sign?: boolean | User$signArgs<ExtArgs>
+    Signature?: boolean | User$SignatureArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1387,21 +1418,21 @@ export namespace Prisma {
     name: "User"
     objects: {
       files: Prisma.$FilePayload<ExtArgs>[]
-      sign: Prisma.$SignaturePayload<ExtArgs>[]
+      Signature: Prisma.$SignaturePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
       email: string
-      username: string
+      createdAt: Date
       password: string | null
-      provider: $Enums.AuthProvider
       providerId: string | null
       refreshToken: string | null
+      updatedAt: Date
+      username: string
+      provider: $Enums.AuthProvider
       otp: string | null
       otpvalidity: Date | null
-      createdAt: Date
-      updatedAt: Date
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -1797,7 +1828,7 @@ export namespace Prisma {
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     files<T extends User$filesArgs<ExtArgs> = {}>(args?: Subset<T, User$filesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    sign<T extends User$signArgs<ExtArgs> = {}>(args?: Subset<T, User$signArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SignaturePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Signature<T extends User$SignatureArgs<ExtArgs> = {}>(args?: Subset<T, User$SignatureArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SignaturePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1830,15 +1861,15 @@ export namespace Prisma {
     readonly id: FieldRef<"User", 'String'>
     readonly name: FieldRef<"User", 'String'>
     readonly email: FieldRef<"User", 'String'>
-    readonly username: FieldRef<"User", 'String'>
+    readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly password: FieldRef<"User", 'String'>
-    readonly provider: FieldRef<"User", 'AuthProvider'>
     readonly providerId: FieldRef<"User", 'String'>
     readonly refreshToken: FieldRef<"User", 'String'>
+    readonly updatedAt: FieldRef<"User", 'DateTime'>
+    readonly username: FieldRef<"User", 'String'>
+    readonly provider: FieldRef<"User", 'AuthProvider'>
     readonly otp: FieldRef<"User", 'String'>
     readonly otpvalidity: FieldRef<"User", 'DateTime'>
-    readonly createdAt: FieldRef<"User", 'DateTime'>
-    readonly updatedAt: FieldRef<"User", 'DateTime'>
   }
     
 
@@ -2256,9 +2287,9 @@ export namespace Prisma {
   }
 
   /**
-   * User.sign
+   * User.Signature
    */
-  export type User$signArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$SignatureArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Signature
      */
@@ -2311,28 +2342,28 @@ export namespace Prisma {
   export type FileMinAggregateOutputType = {
     id: string | null
     fileurl: string | null
-    filename: string | null
     userId: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    filename: string | null
   }
 
   export type FileMaxAggregateOutputType = {
     id: string | null
     fileurl: string | null
-    filename: string | null
     userId: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    filename: string | null
   }
 
   export type FileCountAggregateOutputType = {
     id: number
     fileurl: number
-    filename: number
     userId: number
     createdAt: number
     updatedAt: number
+    filename: number
     _all: number
   }
 
@@ -2340,28 +2371,28 @@ export namespace Prisma {
   export type FileMinAggregateInputType = {
     id?: true
     fileurl?: true
-    filename?: true
     userId?: true
     createdAt?: true
     updatedAt?: true
+    filename?: true
   }
 
   export type FileMaxAggregateInputType = {
     id?: true
     fileurl?: true
-    filename?: true
     userId?: true
     createdAt?: true
     updatedAt?: true
+    filename?: true
   }
 
   export type FileCountAggregateInputType = {
     id?: true
     fileurl?: true
-    filename?: true
     userId?: true
     createdAt?: true
     updatedAt?: true
+    filename?: true
     _all?: true
   }
 
@@ -2440,10 +2471,10 @@ export namespace Prisma {
   export type FileGroupByOutputType = {
     id: string
     fileurl: string
-    filename: string
     userId: string | null
     createdAt: Date
     updatedAt: Date
+    filename: string
     _count: FileCountAggregateOutputType | null
     _min: FileMinAggregateOutputType | null
     _max: FileMaxAggregateOutputType | null
@@ -2466,45 +2497,49 @@ export namespace Prisma {
   export type FileSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     fileurl?: boolean
-    filename?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    filename?: boolean
+    signature?: boolean | File$signatureArgs<ExtArgs>
     user?: boolean | File$userArgs<ExtArgs>
+    _count?: boolean | FileCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["file"]>
 
   export type FileSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     fileurl?: boolean
-    filename?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    filename?: boolean
     user?: boolean | File$userArgs<ExtArgs>
   }, ExtArgs["result"]["file"]>
 
   export type FileSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     fileurl?: boolean
-    filename?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    filename?: boolean
     user?: boolean | File$userArgs<ExtArgs>
   }, ExtArgs["result"]["file"]>
 
   export type FileSelectScalar = {
     id?: boolean
     fileurl?: boolean
-    filename?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    filename?: boolean
   }
 
-  export type FileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fileurl" | "filename" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["file"]>
+  export type FileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fileurl" | "userId" | "createdAt" | "updatedAt" | "filename", ExtArgs["result"]["file"]>
   export type FileInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    signature?: boolean | File$signatureArgs<ExtArgs>
     user?: boolean | File$userArgs<ExtArgs>
+    _count?: boolean | FileCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type FileIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | File$userArgs<ExtArgs>
@@ -2516,15 +2551,16 @@ export namespace Prisma {
   export type $FilePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "File"
     objects: {
+      signature: Prisma.$SignaturePayload<ExtArgs>[]
       user: Prisma.$UserPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       fileurl: string
-      filename: string
       userId: string | null
       createdAt: Date
       updatedAt: Date
+      filename: string
     }, ExtArgs["result"]["file"]>
     composites: {}
   }
@@ -2919,6 +2955,7 @@ export namespace Prisma {
    */
   export interface Prisma__FileClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    signature<T extends File$signatureArgs<ExtArgs> = {}>(args?: Subset<T, File$signatureArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SignaturePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     user<T extends File$userArgs<ExtArgs> = {}>(args?: Subset<T, File$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -2951,10 +2988,10 @@ export namespace Prisma {
   interface FileFieldRefs {
     readonly id: FieldRef<"File", 'String'>
     readonly fileurl: FieldRef<"File", 'String'>
-    readonly filename: FieldRef<"File", 'String'>
     readonly userId: FieldRef<"File", 'String'>
     readonly createdAt: FieldRef<"File", 'DateTime'>
     readonly updatedAt: FieldRef<"File", 'DateTime'>
+    readonly filename: FieldRef<"File", 'String'>
   }
     
 
@@ -3356,6 +3393,30 @@ export namespace Prisma {
   }
 
   /**
+   * File.signature
+   */
+  export type File$signatureArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Signature
+     */
+    select?: SignatureSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Signature
+     */
+    omit?: SignatureOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SignatureInclude<ExtArgs> | null
+    where?: SignatureWhereInput
+    orderBy?: SignatureOrderByWithRelationInput | SignatureOrderByWithRelationInput[]
+    cursor?: SignatureWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SignatureScalarFieldEnum | SignatureScalarFieldEnum[]
+  }
+
+  /**
    * File.user
    */
   export type File$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3399,56 +3460,126 @@ export namespace Prisma {
 
   export type AggregateSignature = {
     _count: SignatureCountAggregateOutputType | null
+    _avg: SignatureAvgAggregateOutputType | null
+    _sum: SignatureSumAggregateOutputType | null
     _min: SignatureMinAggregateOutputType | null
     _max: SignatureMaxAggregateOutputType | null
   }
 
+  export type SignatureAvgAggregateOutputType = {
+    page: number | null
+    x: number | null
+    y: number | null
+    width: number | null
+    height: number | null
+  }
+
+  export type SignatureSumAggregateOutputType = {
+    page: number | null
+    x: number | null
+    y: number | null
+    width: number | null
+    height: number | null
+  }
+
   export type SignatureMinAggregateOutputType = {
     id: string | null
-    signatureurl: string | null
+    signatureUrl: string | null
+    page: number | null
+    x: number | null
+    y: number | null
+    width: number | null
+    height: number | null
     userId: string | null
+    pdfId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
   export type SignatureMaxAggregateOutputType = {
     id: string | null
-    signatureurl: string | null
+    signatureUrl: string | null
+    page: number | null
+    x: number | null
+    y: number | null
+    width: number | null
+    height: number | null
     userId: string | null
+    pdfId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
   export type SignatureCountAggregateOutputType = {
     id: number
-    signatureurl: number
+    signatureUrl: number
+    page: number
+    x: number
+    y: number
+    width: number
+    height: number
     userId: number
+    pdfId: number
     createdAt: number
     updatedAt: number
     _all: number
   }
 
 
+  export type SignatureAvgAggregateInputType = {
+    page?: true
+    x?: true
+    y?: true
+    width?: true
+    height?: true
+  }
+
+  export type SignatureSumAggregateInputType = {
+    page?: true
+    x?: true
+    y?: true
+    width?: true
+    height?: true
+  }
+
   export type SignatureMinAggregateInputType = {
     id?: true
-    signatureurl?: true
+    signatureUrl?: true
+    page?: true
+    x?: true
+    y?: true
+    width?: true
+    height?: true
     userId?: true
+    pdfId?: true
     createdAt?: true
     updatedAt?: true
   }
 
   export type SignatureMaxAggregateInputType = {
     id?: true
-    signatureurl?: true
+    signatureUrl?: true
+    page?: true
+    x?: true
+    y?: true
+    width?: true
+    height?: true
     userId?: true
+    pdfId?: true
     createdAt?: true
     updatedAt?: true
   }
 
   export type SignatureCountAggregateInputType = {
     id?: true
-    signatureurl?: true
+    signatureUrl?: true
+    page?: true
+    x?: true
+    y?: true
+    width?: true
+    height?: true
     userId?: true
+    pdfId?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -3492,6 +3623,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: SignatureAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SignatureSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: SignatureMinAggregateInputType
@@ -3522,17 +3665,27 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: SignatureCountAggregateInputType | true
+    _avg?: SignatureAvgAggregateInputType
+    _sum?: SignatureSumAggregateInputType
     _min?: SignatureMinAggregateInputType
     _max?: SignatureMaxAggregateInputType
   }
 
   export type SignatureGroupByOutputType = {
     id: string
-    signatureurl: string | null
+    signatureUrl: string
+    page: number
+    x: number
+    y: number
+    width: number
+    height: number
     userId: string | null
+    pdfId: string
     createdAt: Date
     updatedAt: Date
     _count: SignatureCountAggregateOutputType | null
+    _avg: SignatureAvgAggregateOutputType | null
+    _sum: SignatureSumAggregateOutputType | null
     _min: SignatureMinAggregateOutputType | null
     _max: SignatureMaxAggregateOutputType | null
   }
@@ -3553,59 +3706,96 @@ export namespace Prisma {
 
   export type SignatureSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    signatureurl?: boolean
+    signatureUrl?: boolean
+    page?: boolean
+    x?: boolean
+    y?: boolean
+    width?: boolean
+    height?: boolean
     userId?: boolean
+    pdfId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | Signature$userArgs<ExtArgs>
+    User?: boolean | Signature$UserArgs<ExtArgs>
+    Pdf?: boolean | FileDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["signature"]>
 
   export type SignatureSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    signatureurl?: boolean
+    signatureUrl?: boolean
+    page?: boolean
+    x?: boolean
+    y?: boolean
+    width?: boolean
+    height?: boolean
     userId?: boolean
+    pdfId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | Signature$userArgs<ExtArgs>
+    User?: boolean | Signature$UserArgs<ExtArgs>
+    Pdf?: boolean | FileDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["signature"]>
 
   export type SignatureSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    signatureurl?: boolean
+    signatureUrl?: boolean
+    page?: boolean
+    x?: boolean
+    y?: boolean
+    width?: boolean
+    height?: boolean
     userId?: boolean
+    pdfId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | Signature$userArgs<ExtArgs>
+    User?: boolean | Signature$UserArgs<ExtArgs>
+    Pdf?: boolean | FileDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["signature"]>
 
   export type SignatureSelectScalar = {
     id?: boolean
-    signatureurl?: boolean
+    signatureUrl?: boolean
+    page?: boolean
+    x?: boolean
+    y?: boolean
+    width?: boolean
+    height?: boolean
     userId?: boolean
+    pdfId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type SignatureOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "signatureurl" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["signature"]>
+  export type SignatureOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "signatureUrl" | "page" | "x" | "y" | "width" | "height" | "userId" | "pdfId" | "createdAt" | "updatedAt", ExtArgs["result"]["signature"]>
   export type SignatureInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | Signature$userArgs<ExtArgs>
+    User?: boolean | Signature$UserArgs<ExtArgs>
+    Pdf?: boolean | FileDefaultArgs<ExtArgs>
   }
   export type SignatureIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | Signature$userArgs<ExtArgs>
+    User?: boolean | Signature$UserArgs<ExtArgs>
+    Pdf?: boolean | FileDefaultArgs<ExtArgs>
   }
   export type SignatureIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | Signature$userArgs<ExtArgs>
+    User?: boolean | Signature$UserArgs<ExtArgs>
+    Pdf?: boolean | FileDefaultArgs<ExtArgs>
   }
 
   export type $SignaturePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Signature"
     objects: {
-      user: Prisma.$UserPayload<ExtArgs> | null
+      User: Prisma.$UserPayload<ExtArgs> | null
+      Pdf: Prisma.$FilePayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      signatureurl: string | null
+      signatureUrl: string
+      page: number
+      x: number
+      y: number
+      width: number
+      height: number
       userId: string | null
+      pdfId: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["signature"]>
@@ -4002,7 +4192,8 @@ export namespace Prisma {
    */
   export interface Prisma__SignatureClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends Signature$userArgs<ExtArgs> = {}>(args?: Subset<T, Signature$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    User<T extends Signature$UserArgs<ExtArgs> = {}>(args?: Subset<T, Signature$UserArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    Pdf<T extends FileDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FileDefaultArgs<ExtArgs>>): Prisma__FileClient<$Result.GetResult<Prisma.$FilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4033,8 +4224,14 @@ export namespace Prisma {
    */
   interface SignatureFieldRefs {
     readonly id: FieldRef<"Signature", 'String'>
-    readonly signatureurl: FieldRef<"Signature", 'String'>
+    readonly signatureUrl: FieldRef<"Signature", 'String'>
+    readonly page: FieldRef<"Signature", 'Int'>
+    readonly x: FieldRef<"Signature", 'Float'>
+    readonly y: FieldRef<"Signature", 'Float'>
+    readonly width: FieldRef<"Signature", 'Float'>
+    readonly height: FieldRef<"Signature", 'Float'>
     readonly userId: FieldRef<"Signature", 'String'>
+    readonly pdfId: FieldRef<"Signature", 'String'>
     readonly createdAt: FieldRef<"Signature", 'DateTime'>
     readonly updatedAt: FieldRef<"Signature", 'DateTime'>
   }
@@ -4438,9 +4635,9 @@ export namespace Prisma {
   }
 
   /**
-   * Signature.user
+   * Signature.User
    */
-  export type Signature$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Signature$UserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the User
      */
@@ -4493,15 +4690,15 @@ export namespace Prisma {
     id: 'id',
     name: 'name',
     email: 'email',
-    username: 'username',
+    createdAt: 'createdAt',
     password: 'password',
-    provider: 'provider',
     providerId: 'providerId',
     refreshToken: 'refreshToken',
+    updatedAt: 'updatedAt',
+    username: 'username',
+    provider: 'provider',
     otp: 'otp',
-    otpvalidity: 'otpvalidity',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    otpvalidity: 'otpvalidity'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -4510,10 +4707,10 @@ export namespace Prisma {
   export const FileScalarFieldEnum: {
     id: 'id',
     fileurl: 'fileurl',
-    filename: 'filename',
     userId: 'userId',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    filename: 'filename'
   };
 
   export type FileScalarFieldEnum = (typeof FileScalarFieldEnum)[keyof typeof FileScalarFieldEnum]
@@ -4521,8 +4718,14 @@ export namespace Prisma {
 
   export const SignatureScalarFieldEnum: {
     id: 'id',
-    signatureurl: 'signatureurl',
+    signatureUrl: 'signatureUrl',
+    page: 'page',
+    x: 'x',
+    y: 'y',
+    width: 'width',
+    height: 'height',
     userId: 'userId',
+    pdfId: 'pdfId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -4574,20 +4777,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'AuthProvider'
-   */
-  export type EnumAuthProviderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AuthProvider'>
-    
-
-
-  /**
-   * Reference to a field of type 'AuthProvider[]'
-   */
-  export type ListEnumAuthProviderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AuthProvider[]'>
-    
-
-
-  /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -4598,6 +4787,20 @@ export namespace Prisma {
    * Reference to a field of type 'DateTime[]'
    */
   export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'AuthProvider'
+   */
+  export type EnumAuthProviderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AuthProvider'>
+    
+
+
+  /**
+   * Reference to a field of type 'AuthProvider[]'
+   */
+  export type ListEnumAuthProviderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AuthProvider[]'>
     
 
 
@@ -4613,6 +4816,20 @@ export namespace Prisma {
    */
   export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
     
+
+
+  /**
+   * Reference to a field of type 'Float'
+   */
+  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float[]'
+   */
+  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
   /**
    * Deep Input Types
    */
@@ -4625,34 +4842,34 @@ export namespace Prisma {
     id?: StringFilter<"User"> | string
     name?: StringFilter<"User"> | string
     email?: StringFilter<"User"> | string
-    username?: StringFilter<"User"> | string
+    createdAt?: DateTimeFilter<"User"> | Date | string
     password?: StringNullableFilter<"User"> | string | null
-    provider?: EnumAuthProviderFilter<"User"> | $Enums.AuthProvider
     providerId?: StringNullableFilter<"User"> | string | null
     refreshToken?: StringNullableFilter<"User"> | string | null
+    updatedAt?: DateTimeFilter<"User"> | Date | string
+    username?: StringFilter<"User"> | string
+    provider?: EnumAuthProviderFilter<"User"> | $Enums.AuthProvider
     otp?: StringNullableFilter<"User"> | string | null
     otpvalidity?: DateTimeNullableFilter<"User"> | Date | string | null
-    createdAt?: DateTimeFilter<"User"> | Date | string
-    updatedAt?: DateTimeFilter<"User"> | Date | string
     files?: FileListRelationFilter
-    sign?: SignatureListRelationFilter
+    Signature?: SignatureListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
-    username?: SortOrder
+    createdAt?: SortOrder
     password?: SortOrderInput | SortOrder
-    provider?: SortOrder
     providerId?: SortOrderInput | SortOrder
     refreshToken?: SortOrderInput | SortOrder
+    updatedAt?: SortOrder
+    username?: SortOrder
+    provider?: SortOrder
     otp?: SortOrderInput | SortOrder
     otpvalidity?: SortOrderInput | SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
     files?: FileOrderByRelationAggregateInput
-    sign?: SignatureOrderByRelationAggregateInput
+    Signature?: SignatureOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -4663,31 +4880,31 @@ export namespace Prisma {
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
     name?: StringFilter<"User"> | string
+    createdAt?: DateTimeFilter<"User"> | Date | string
     password?: StringNullableFilter<"User"> | string | null
-    provider?: EnumAuthProviderFilter<"User"> | $Enums.AuthProvider
     providerId?: StringNullableFilter<"User"> | string | null
     refreshToken?: StringNullableFilter<"User"> | string | null
+    updatedAt?: DateTimeFilter<"User"> | Date | string
+    provider?: EnumAuthProviderFilter<"User"> | $Enums.AuthProvider
     otp?: StringNullableFilter<"User"> | string | null
     otpvalidity?: DateTimeNullableFilter<"User"> | Date | string | null
-    createdAt?: DateTimeFilter<"User"> | Date | string
-    updatedAt?: DateTimeFilter<"User"> | Date | string
     files?: FileListRelationFilter
-    sign?: SignatureListRelationFilter
+    Signature?: SignatureListRelationFilter
   }, "id" | "email" | "username">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
-    username?: SortOrder
+    createdAt?: SortOrder
     password?: SortOrderInput | SortOrder
-    provider?: SortOrder
     providerId?: SortOrderInput | SortOrder
     refreshToken?: SortOrderInput | SortOrder
+    updatedAt?: SortOrder
+    username?: SortOrder
+    provider?: SortOrder
     otp?: SortOrderInput | SortOrder
     otpvalidity?: SortOrderInput | SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
     _min?: UserMinOrderByAggregateInput
@@ -4700,15 +4917,15 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"User"> | string
     name?: StringWithAggregatesFilter<"User"> | string
     email?: StringWithAggregatesFilter<"User"> | string
-    username?: StringWithAggregatesFilter<"User"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     password?: StringNullableWithAggregatesFilter<"User"> | string | null
-    provider?: EnumAuthProviderWithAggregatesFilter<"User"> | $Enums.AuthProvider
     providerId?: StringNullableWithAggregatesFilter<"User"> | string | null
     refreshToken?: StringNullableWithAggregatesFilter<"User"> | string | null
+    updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    username?: StringWithAggregatesFilter<"User"> | string
+    provider?: EnumAuthProviderWithAggregatesFilter<"User"> | $Enums.AuthProvider
     otp?: StringNullableWithAggregatesFilter<"User"> | string | null
     otpvalidity?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
-    createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
 
   export type FileWhereInput = {
@@ -4717,20 +4934,22 @@ export namespace Prisma {
     NOT?: FileWhereInput | FileWhereInput[]
     id?: StringFilter<"File"> | string
     fileurl?: StringFilter<"File"> | string
-    filename?: StringFilter<"File"> | string
     userId?: StringNullableFilter<"File"> | string | null
     createdAt?: DateTimeFilter<"File"> | Date | string
     updatedAt?: DateTimeFilter<"File"> | Date | string
+    filename?: StringFilter<"File"> | string
+    signature?: SignatureListRelationFilter
     user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }
 
   export type FileOrderByWithRelationInput = {
     id?: SortOrder
     fileurl?: SortOrder
-    filename?: SortOrder
     userId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    filename?: SortOrder
+    signature?: SignatureOrderByRelationAggregateInput
     user?: UserOrderByWithRelationInput
   }
 
@@ -4740,20 +4959,21 @@ export namespace Prisma {
     OR?: FileWhereInput[]
     NOT?: FileWhereInput | FileWhereInput[]
     fileurl?: StringFilter<"File"> | string
-    filename?: StringFilter<"File"> | string
     userId?: StringNullableFilter<"File"> | string | null
     createdAt?: DateTimeFilter<"File"> | Date | string
     updatedAt?: DateTimeFilter<"File"> | Date | string
+    filename?: StringFilter<"File"> | string
+    signature?: SignatureListRelationFilter
     user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }, "id">
 
   export type FileOrderByWithAggregationInput = {
     id?: SortOrder
     fileurl?: SortOrder
-    filename?: SortOrder
     userId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    filename?: SortOrder
     _count?: FileCountOrderByAggregateInput
     _max?: FileMaxOrderByAggregateInput
     _min?: FileMinOrderByAggregateInput
@@ -4765,10 +4985,10 @@ export namespace Prisma {
     NOT?: FileScalarWhereWithAggregatesInput | FileScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"File"> | string
     fileurl?: StringWithAggregatesFilter<"File"> | string
-    filename?: StringWithAggregatesFilter<"File"> | string
     userId?: StringNullableWithAggregatesFilter<"File"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"File"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"File"> | Date | string
+    filename?: StringWithAggregatesFilter<"File"> | string
   }
 
   export type SignatureWhereInput = {
@@ -4776,20 +4996,34 @@ export namespace Prisma {
     OR?: SignatureWhereInput[]
     NOT?: SignatureWhereInput | SignatureWhereInput[]
     id?: StringFilter<"Signature"> | string
-    signatureurl?: StringNullableFilter<"Signature"> | string | null
+    signatureUrl?: StringFilter<"Signature"> | string
+    page?: IntFilter<"Signature"> | number
+    x?: FloatFilter<"Signature"> | number
+    y?: FloatFilter<"Signature"> | number
+    width?: FloatFilter<"Signature"> | number
+    height?: FloatFilter<"Signature"> | number
     userId?: StringNullableFilter<"Signature"> | string | null
+    pdfId?: StringFilter<"Signature"> | string
     createdAt?: DateTimeFilter<"Signature"> | Date | string
     updatedAt?: DateTimeFilter<"Signature"> | Date | string
-    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+    User?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+    Pdf?: XOR<FileScalarRelationFilter, FileWhereInput>
   }
 
   export type SignatureOrderByWithRelationInput = {
     id?: SortOrder
-    signatureurl?: SortOrderInput | SortOrder
+    signatureUrl?: SortOrder
+    page?: SortOrder
+    x?: SortOrder
+    y?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
     userId?: SortOrderInput | SortOrder
+    pdfId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    user?: UserOrderByWithRelationInput
+    User?: UserOrderByWithRelationInput
+    Pdf?: FileOrderByWithRelationInput
   }
 
   export type SignatureWhereUniqueInput = Prisma.AtLeast<{
@@ -4797,22 +5031,37 @@ export namespace Prisma {
     AND?: SignatureWhereInput | SignatureWhereInput[]
     OR?: SignatureWhereInput[]
     NOT?: SignatureWhereInput | SignatureWhereInput[]
-    signatureurl?: StringNullableFilter<"Signature"> | string | null
+    signatureUrl?: StringFilter<"Signature"> | string
+    page?: IntFilter<"Signature"> | number
+    x?: FloatFilter<"Signature"> | number
+    y?: FloatFilter<"Signature"> | number
+    width?: FloatFilter<"Signature"> | number
+    height?: FloatFilter<"Signature"> | number
     userId?: StringNullableFilter<"Signature"> | string | null
+    pdfId?: StringFilter<"Signature"> | string
     createdAt?: DateTimeFilter<"Signature"> | Date | string
     updatedAt?: DateTimeFilter<"Signature"> | Date | string
-    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+    User?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+    Pdf?: XOR<FileScalarRelationFilter, FileWhereInput>
   }, "id">
 
   export type SignatureOrderByWithAggregationInput = {
     id?: SortOrder
-    signatureurl?: SortOrderInput | SortOrder
+    signatureUrl?: SortOrder
+    page?: SortOrder
+    x?: SortOrder
+    y?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
     userId?: SortOrderInput | SortOrder
+    pdfId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: SignatureCountOrderByAggregateInput
+    _avg?: SignatureAvgOrderByAggregateInput
     _max?: SignatureMaxOrderByAggregateInput
     _min?: SignatureMinOrderByAggregateInput
+    _sum?: SignatureSumOrderByAggregateInput
   }
 
   export type SignatureScalarWhereWithAggregatesInput = {
@@ -4820,8 +5069,14 @@ export namespace Prisma {
     OR?: SignatureScalarWhereWithAggregatesInput[]
     NOT?: SignatureScalarWhereWithAggregatesInput | SignatureScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Signature"> | string
-    signatureurl?: StringNullableWithAggregatesFilter<"Signature"> | string | null
+    signatureUrl?: StringWithAggregatesFilter<"Signature"> | string
+    page?: IntWithAggregatesFilter<"Signature"> | number
+    x?: FloatWithAggregatesFilter<"Signature"> | number
+    y?: FloatWithAggregatesFilter<"Signature"> | number
+    width?: FloatWithAggregatesFilter<"Signature"> | number
+    height?: FloatWithAggregatesFilter<"Signature"> | number
     userId?: StringNullableWithAggregatesFilter<"Signature"> | string | null
+    pdfId?: StringWithAggregatesFilter<"Signature"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Signature"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Signature"> | Date | string
   }
@@ -4830,228 +5085,273 @@ export namespace Prisma {
     id?: string
     name: string
     email: string
-    username: string
+    createdAt?: Date | string
     password?: string | null
-    provider?: $Enums.AuthProvider
     providerId?: string | null
     refreshToken?: string | null
+    updatedAt?: Date | string
+    username: string
+    provider?: $Enums.AuthProvider
     otp?: string | null
     otpvalidity?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
     files?: FileCreateNestedManyWithoutUserInput
-    sign?: SignatureCreateNestedManyWithoutUserInput
+    Signature?: SignatureCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
     id?: string
     name: string
     email: string
-    username: string
+    createdAt?: Date | string
     password?: string | null
-    provider?: $Enums.AuthProvider
     providerId?: string | null
     refreshToken?: string | null
+    updatedAt?: Date | string
+    username: string
+    provider?: $Enums.AuthProvider
     otp?: string | null
     otpvalidity?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
     files?: FileUncheckedCreateNestedManyWithoutUserInput
-    sign?: SignatureUncheckedCreateNestedManyWithoutUserInput
+    Signature?: SignatureUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    username?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    provider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
     providerId?: NullableStringFieldUpdateOperationsInput | string | null
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    username?: StringFieldUpdateOperationsInput | string
+    provider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
     otp?: NullableStringFieldUpdateOperationsInput | string | null
     otpvalidity?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     files?: FileUpdateManyWithoutUserNestedInput
-    sign?: SignatureUpdateManyWithoutUserNestedInput
+    Signature?: SignatureUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    username?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    provider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
     providerId?: NullableStringFieldUpdateOperationsInput | string | null
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    username?: StringFieldUpdateOperationsInput | string
+    provider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
     otp?: NullableStringFieldUpdateOperationsInput | string | null
     otpvalidity?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     files?: FileUncheckedUpdateManyWithoutUserNestedInput
-    sign?: SignatureUncheckedUpdateManyWithoutUserNestedInput
+    Signature?: SignatureUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
     id?: string
     name: string
     email: string
-    username: string
+    createdAt?: Date | string
     password?: string | null
-    provider?: $Enums.AuthProvider
     providerId?: string | null
     refreshToken?: string | null
+    updatedAt?: Date | string
+    username: string
+    provider?: $Enums.AuthProvider
     otp?: string | null
     otpvalidity?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
   }
 
   export type UserUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    username?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    provider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
     providerId?: NullableStringFieldUpdateOperationsInput | string | null
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    username?: StringFieldUpdateOperationsInput | string
+    provider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
     otp?: NullableStringFieldUpdateOperationsInput | string | null
     otpvalidity?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    username?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    provider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
     providerId?: NullableStringFieldUpdateOperationsInput | string | null
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    username?: StringFieldUpdateOperationsInput | string
+    provider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
     otp?: NullableStringFieldUpdateOperationsInput | string | null
     otpvalidity?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FileCreateInput = {
     id?: string
     fileurl: string
-    filename: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    filename: string
+    signature?: SignatureCreateNestedManyWithoutPdfInput
     user?: UserCreateNestedOneWithoutFilesInput
   }
 
   export type FileUncheckedCreateInput = {
     id?: string
     fileurl: string
-    filename: string
     userId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    filename: string
+    signature?: SignatureUncheckedCreateNestedManyWithoutPdfInput
   }
 
   export type FileUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     fileurl?: StringFieldUpdateOperationsInput | string
-    filename?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    filename?: StringFieldUpdateOperationsInput | string
+    signature?: SignatureUpdateManyWithoutPdfNestedInput
     user?: UserUpdateOneWithoutFilesNestedInput
   }
 
   export type FileUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     fileurl?: StringFieldUpdateOperationsInput | string
-    filename?: StringFieldUpdateOperationsInput | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    filename?: StringFieldUpdateOperationsInput | string
+    signature?: SignatureUncheckedUpdateManyWithoutPdfNestedInput
   }
 
   export type FileCreateManyInput = {
     id?: string
     fileurl: string
-    filename: string
     userId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    filename: string
   }
 
   export type FileUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     fileurl?: StringFieldUpdateOperationsInput | string
-    filename?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    filename?: StringFieldUpdateOperationsInput | string
   }
 
   export type FileUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     fileurl?: StringFieldUpdateOperationsInput | string
-    filename?: StringFieldUpdateOperationsInput | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    filename?: StringFieldUpdateOperationsInput | string
   }
 
   export type SignatureCreateInput = {
     id?: string
-    signatureurl?: string | null
+    signatureUrl: string
+    page: number
+    x: number
+    y: number
+    width: number
+    height: number
     createdAt?: Date | string
     updatedAt?: Date | string
-    user?: UserCreateNestedOneWithoutSignInput
+    User?: UserCreateNestedOneWithoutSignatureInput
+    Pdf: FileCreateNestedOneWithoutSignatureInput
   }
 
   export type SignatureUncheckedCreateInput = {
     id?: string
-    signatureurl?: string | null
+    signatureUrl: string
+    page: number
+    x: number
+    y: number
+    width: number
+    height: number
     userId?: string | null
+    pdfId: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type SignatureUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    signatureurl?: NullableStringFieldUpdateOperationsInput | string | null
+    signatureUrl?: StringFieldUpdateOperationsInput | string
+    page?: IntFieldUpdateOperationsInput | number
+    x?: FloatFieldUpdateOperationsInput | number
+    y?: FloatFieldUpdateOperationsInput | number
+    width?: FloatFieldUpdateOperationsInput | number
+    height?: FloatFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneWithoutSignNestedInput
+    User?: UserUpdateOneWithoutSignatureNestedInput
+    Pdf?: FileUpdateOneRequiredWithoutSignatureNestedInput
   }
 
   export type SignatureUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    signatureurl?: NullableStringFieldUpdateOperationsInput | string | null
+    signatureUrl?: StringFieldUpdateOperationsInput | string
+    page?: IntFieldUpdateOperationsInput | number
+    x?: FloatFieldUpdateOperationsInput | number
+    y?: FloatFieldUpdateOperationsInput | number
+    width?: FloatFieldUpdateOperationsInput | number
+    height?: FloatFieldUpdateOperationsInput | number
     userId?: NullableStringFieldUpdateOperationsInput | string | null
+    pdfId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type SignatureCreateManyInput = {
     id?: string
-    signatureurl?: string | null
+    signatureUrl: string
+    page: number
+    x: number
+    y: number
+    width: number
+    height: number
     userId?: string | null
+    pdfId: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type SignatureUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    signatureurl?: NullableStringFieldUpdateOperationsInput | string | null
+    signatureUrl?: StringFieldUpdateOperationsInput | string
+    page?: IntFieldUpdateOperationsInput | number
+    x?: FloatFieldUpdateOperationsInput | number
+    y?: FloatFieldUpdateOperationsInput | number
+    width?: FloatFieldUpdateOperationsInput | number
+    height?: FloatFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type SignatureUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    signatureurl?: NullableStringFieldUpdateOperationsInput | string | null
+    signatureUrl?: StringFieldUpdateOperationsInput | string
+    page?: IntFieldUpdateOperationsInput | number
+    x?: FloatFieldUpdateOperationsInput | number
+    y?: FloatFieldUpdateOperationsInput | number
+    width?: FloatFieldUpdateOperationsInput | number
+    height?: FloatFieldUpdateOperationsInput | number
     userId?: NullableStringFieldUpdateOperationsInput | string | null
+    pdfId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5069,6 +5369,17 @@ export namespace Prisma {
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     mode?: QueryMode
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type StringNullableFilter<$PrismaModel = never> = {
@@ -5104,17 +5415,6 @@ export namespace Prisma {
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
-  export type DateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
   export type FileListRelationFilter = {
     every?: FileWhereInput
     some?: FileWhereInput
@@ -5144,45 +5444,45 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
-    username?: SortOrder
+    createdAt?: SortOrder
     password?: SortOrder
-    provider?: SortOrder
     providerId?: SortOrder
     refreshToken?: SortOrder
+    updatedAt?: SortOrder
+    username?: SortOrder
+    provider?: SortOrder
     otp?: SortOrder
     otpvalidity?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
   }
 
   export type UserMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
-    username?: SortOrder
+    createdAt?: SortOrder
     password?: SortOrder
-    provider?: SortOrder
     providerId?: SortOrder
     refreshToken?: SortOrder
+    updatedAt?: SortOrder
+    username?: SortOrder
+    provider?: SortOrder
     otp?: SortOrder
     otpvalidity?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
-    username?: SortOrder
+    createdAt?: SortOrder
     password?: SortOrder
-    provider?: SortOrder
     providerId?: SortOrder
     refreshToken?: SortOrder
+    updatedAt?: SortOrder
+    username?: SortOrder
+    provider?: SortOrder
     otp?: SortOrder
     otpvalidity?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -5201,6 +5501,20 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -5245,20 +5559,6 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
-  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
-  }
-
   export type UserNullableScalarRelationFilter = {
     is?: UserWhereInput | null
     isNot?: UserWhereInput | null
@@ -5267,52 +5567,145 @@ export namespace Prisma {
   export type FileCountOrderByAggregateInput = {
     id?: SortOrder
     fileurl?: SortOrder
-    filename?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    filename?: SortOrder
   }
 
   export type FileMaxOrderByAggregateInput = {
     id?: SortOrder
     fileurl?: SortOrder
-    filename?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    filename?: SortOrder
   }
 
   export type FileMinOrderByAggregateInput = {
     id?: SortOrder
     fileurl?: SortOrder
-    filename?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    filename?: SortOrder
+  }
+
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type FloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type FileScalarRelationFilter = {
+    is?: FileWhereInput
+    isNot?: FileWhereInput
   }
 
   export type SignatureCountOrderByAggregateInput = {
     id?: SortOrder
-    signatureurl?: SortOrder
+    signatureUrl?: SortOrder
+    page?: SortOrder
+    x?: SortOrder
+    y?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
     userId?: SortOrder
+    pdfId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
+  export type SignatureAvgOrderByAggregateInput = {
+    page?: SortOrder
+    x?: SortOrder
+    y?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+  }
+
   export type SignatureMaxOrderByAggregateInput = {
     id?: SortOrder
-    signatureurl?: SortOrder
+    signatureUrl?: SortOrder
+    page?: SortOrder
+    x?: SortOrder
+    y?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
     userId?: SortOrder
+    pdfId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
   export type SignatureMinOrderByAggregateInput = {
     id?: SortOrder
-    signatureurl?: SortOrder
+    signatureUrl?: SortOrder
+    page?: SortOrder
+    x?: SortOrder
+    y?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
     userId?: SortOrder
+    pdfId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type SignatureSumOrderByAggregateInput = {
+    page?: SortOrder
+    x?: SortOrder
+    y?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type FloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
   }
 
   export type FileCreateNestedManyWithoutUserInput = {
@@ -5347,6 +5740,10 @@ export namespace Prisma {
     set?: string
   }
 
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
+  }
+
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
   }
@@ -5357,10 +5754,6 @@ export namespace Prisma {
 
   export type NullableDateTimeFieldUpdateOperationsInput = {
     set?: Date | string | null
-  }
-
-  export type DateTimeFieldUpdateOperationsInput = {
-    set?: Date | string
   }
 
   export type FileUpdateManyWithoutUserNestedInput = {
@@ -5419,10 +5812,38 @@ export namespace Prisma {
     deleteMany?: SignatureScalarWhereInput | SignatureScalarWhereInput[]
   }
 
+  export type SignatureCreateNestedManyWithoutPdfInput = {
+    create?: XOR<SignatureCreateWithoutPdfInput, SignatureUncheckedCreateWithoutPdfInput> | SignatureCreateWithoutPdfInput[] | SignatureUncheckedCreateWithoutPdfInput[]
+    connectOrCreate?: SignatureCreateOrConnectWithoutPdfInput | SignatureCreateOrConnectWithoutPdfInput[]
+    createMany?: SignatureCreateManyPdfInputEnvelope
+    connect?: SignatureWhereUniqueInput | SignatureWhereUniqueInput[]
+  }
+
   export type UserCreateNestedOneWithoutFilesInput = {
     create?: XOR<UserCreateWithoutFilesInput, UserUncheckedCreateWithoutFilesInput>
     connectOrCreate?: UserCreateOrConnectWithoutFilesInput
     connect?: UserWhereUniqueInput
+  }
+
+  export type SignatureUncheckedCreateNestedManyWithoutPdfInput = {
+    create?: XOR<SignatureCreateWithoutPdfInput, SignatureUncheckedCreateWithoutPdfInput> | SignatureCreateWithoutPdfInput[] | SignatureUncheckedCreateWithoutPdfInput[]
+    connectOrCreate?: SignatureCreateOrConnectWithoutPdfInput | SignatureCreateOrConnectWithoutPdfInput[]
+    createMany?: SignatureCreateManyPdfInputEnvelope
+    connect?: SignatureWhereUniqueInput | SignatureWhereUniqueInput[]
+  }
+
+  export type SignatureUpdateManyWithoutPdfNestedInput = {
+    create?: XOR<SignatureCreateWithoutPdfInput, SignatureUncheckedCreateWithoutPdfInput> | SignatureCreateWithoutPdfInput[] | SignatureUncheckedCreateWithoutPdfInput[]
+    connectOrCreate?: SignatureCreateOrConnectWithoutPdfInput | SignatureCreateOrConnectWithoutPdfInput[]
+    upsert?: SignatureUpsertWithWhereUniqueWithoutPdfInput | SignatureUpsertWithWhereUniqueWithoutPdfInput[]
+    createMany?: SignatureCreateManyPdfInputEnvelope
+    set?: SignatureWhereUniqueInput | SignatureWhereUniqueInput[]
+    disconnect?: SignatureWhereUniqueInput | SignatureWhereUniqueInput[]
+    delete?: SignatureWhereUniqueInput | SignatureWhereUniqueInput[]
+    connect?: SignatureWhereUniqueInput | SignatureWhereUniqueInput[]
+    update?: SignatureUpdateWithWhereUniqueWithoutPdfInput | SignatureUpdateWithWhereUniqueWithoutPdfInput[]
+    updateMany?: SignatureUpdateManyWithWhereWithoutPdfInput | SignatureUpdateManyWithWhereWithoutPdfInput[]
+    deleteMany?: SignatureScalarWhereInput | SignatureScalarWhereInput[]
   }
 
   export type UserUpdateOneWithoutFilesNestedInput = {
@@ -5435,20 +5856,64 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFilesInput, UserUpdateWithoutFilesInput>, UserUncheckedUpdateWithoutFilesInput>
   }
 
-  export type UserCreateNestedOneWithoutSignInput = {
-    create?: XOR<UserCreateWithoutSignInput, UserUncheckedCreateWithoutSignInput>
-    connectOrCreate?: UserCreateOrConnectWithoutSignInput
+  export type SignatureUncheckedUpdateManyWithoutPdfNestedInput = {
+    create?: XOR<SignatureCreateWithoutPdfInput, SignatureUncheckedCreateWithoutPdfInput> | SignatureCreateWithoutPdfInput[] | SignatureUncheckedCreateWithoutPdfInput[]
+    connectOrCreate?: SignatureCreateOrConnectWithoutPdfInput | SignatureCreateOrConnectWithoutPdfInput[]
+    upsert?: SignatureUpsertWithWhereUniqueWithoutPdfInput | SignatureUpsertWithWhereUniqueWithoutPdfInput[]
+    createMany?: SignatureCreateManyPdfInputEnvelope
+    set?: SignatureWhereUniqueInput | SignatureWhereUniqueInput[]
+    disconnect?: SignatureWhereUniqueInput | SignatureWhereUniqueInput[]
+    delete?: SignatureWhereUniqueInput | SignatureWhereUniqueInput[]
+    connect?: SignatureWhereUniqueInput | SignatureWhereUniqueInput[]
+    update?: SignatureUpdateWithWhereUniqueWithoutPdfInput | SignatureUpdateWithWhereUniqueWithoutPdfInput[]
+    updateMany?: SignatureUpdateManyWithWhereWithoutPdfInput | SignatureUpdateManyWithWhereWithoutPdfInput[]
+    deleteMany?: SignatureScalarWhereInput | SignatureScalarWhereInput[]
+  }
+
+  export type UserCreateNestedOneWithoutSignatureInput = {
+    create?: XOR<UserCreateWithoutSignatureInput, UserUncheckedCreateWithoutSignatureInput>
+    connectOrCreate?: UserCreateOrConnectWithoutSignatureInput
     connect?: UserWhereUniqueInput
   }
 
-  export type UserUpdateOneWithoutSignNestedInput = {
-    create?: XOR<UserCreateWithoutSignInput, UserUncheckedCreateWithoutSignInput>
-    connectOrCreate?: UserCreateOrConnectWithoutSignInput
-    upsert?: UserUpsertWithoutSignInput
+  export type FileCreateNestedOneWithoutSignatureInput = {
+    create?: XOR<FileCreateWithoutSignatureInput, FileUncheckedCreateWithoutSignatureInput>
+    connectOrCreate?: FileCreateOrConnectWithoutSignatureInput
+    connect?: FileWhereUniqueInput
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type FloatFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type UserUpdateOneWithoutSignatureNestedInput = {
+    create?: XOR<UserCreateWithoutSignatureInput, UserUncheckedCreateWithoutSignatureInput>
+    connectOrCreate?: UserCreateOrConnectWithoutSignatureInput
+    upsert?: UserUpsertWithoutSignatureInput
     disconnect?: UserWhereInput | boolean
     delete?: UserWhereInput | boolean
     connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutSignInput, UserUpdateWithoutSignInput>, UserUncheckedUpdateWithoutSignInput>
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutSignatureInput, UserUpdateWithoutSignatureInput>, UserUncheckedUpdateWithoutSignatureInput>
+  }
+
+  export type FileUpdateOneRequiredWithoutSignatureNestedInput = {
+    create?: XOR<FileCreateWithoutSignatureInput, FileUncheckedCreateWithoutSignatureInput>
+    connectOrCreate?: FileCreateOrConnectWithoutSignatureInput
+    upsert?: FileUpsertWithoutSignatureInput
+    connect?: FileWhereUniqueInput
+    update?: XOR<XOR<FileUpdateToOneWithWhereWithoutSignatureInput, FileUpdateWithoutSignatureInput>, FileUncheckedUpdateWithoutSignatureInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -5463,6 +5928,17 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type NestedStringNullableFilter<$PrismaModel = never> = {
@@ -5497,17 +5973,6 @@ export namespace Prisma {
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
-  export type NestedDateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -5534,6 +5999,20 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -5588,34 +6067,65 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
-  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
     _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
   }
 
   export type FileCreateWithoutUserInput = {
     id?: string
     fileurl: string
-    filename: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    filename: string
+    signature?: SignatureCreateNestedManyWithoutPdfInput
   }
 
   export type FileUncheckedCreateWithoutUserInput = {
     id?: string
     fileurl: string
-    filename: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    filename: string
+    signature?: SignatureUncheckedCreateNestedManyWithoutPdfInput
   }
 
   export type FileCreateOrConnectWithoutUserInput = {
@@ -5630,14 +6140,26 @@ export namespace Prisma {
 
   export type SignatureCreateWithoutUserInput = {
     id?: string
-    signatureurl?: string | null
+    signatureUrl: string
+    page: number
+    x: number
+    y: number
+    width: number
+    height: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    Pdf: FileCreateNestedOneWithoutSignatureInput
   }
 
   export type SignatureUncheckedCreateWithoutUserInput = {
     id?: string
-    signatureurl?: string | null
+    signatureUrl: string
+    page: number
+    x: number
+    y: number
+    width: number
+    height: number
+    pdfId: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5674,10 +6196,10 @@ export namespace Prisma {
     NOT?: FileScalarWhereInput | FileScalarWhereInput[]
     id?: StringFilter<"File"> | string
     fileurl?: StringFilter<"File"> | string
-    filename?: StringFilter<"File"> | string
     userId?: StringNullableFilter<"File"> | string | null
     createdAt?: DateTimeFilter<"File"> | Date | string
     updatedAt?: DateTimeFilter<"File"> | Date | string
+    filename?: StringFilter<"File"> | string
   }
 
   export type SignatureUpsertWithWhereUniqueWithoutUserInput = {
@@ -5701,47 +6223,105 @@ export namespace Prisma {
     OR?: SignatureScalarWhereInput[]
     NOT?: SignatureScalarWhereInput | SignatureScalarWhereInput[]
     id?: StringFilter<"Signature"> | string
-    signatureurl?: StringNullableFilter<"Signature"> | string | null
+    signatureUrl?: StringFilter<"Signature"> | string
+    page?: IntFilter<"Signature"> | number
+    x?: FloatFilter<"Signature"> | number
+    y?: FloatFilter<"Signature"> | number
+    width?: FloatFilter<"Signature"> | number
+    height?: FloatFilter<"Signature"> | number
     userId?: StringNullableFilter<"Signature"> | string | null
+    pdfId?: StringFilter<"Signature"> | string
     createdAt?: DateTimeFilter<"Signature"> | Date | string
     updatedAt?: DateTimeFilter<"Signature"> | Date | string
+  }
+
+  export type SignatureCreateWithoutPdfInput = {
+    id?: string
+    signatureUrl: string
+    page: number
+    x: number
+    y: number
+    width: number
+    height: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    User?: UserCreateNestedOneWithoutSignatureInput
+  }
+
+  export type SignatureUncheckedCreateWithoutPdfInput = {
+    id?: string
+    signatureUrl: string
+    page: number
+    x: number
+    y: number
+    width: number
+    height: number
+    userId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SignatureCreateOrConnectWithoutPdfInput = {
+    where: SignatureWhereUniqueInput
+    create: XOR<SignatureCreateWithoutPdfInput, SignatureUncheckedCreateWithoutPdfInput>
+  }
+
+  export type SignatureCreateManyPdfInputEnvelope = {
+    data: SignatureCreateManyPdfInput | SignatureCreateManyPdfInput[]
+    skipDuplicates?: boolean
   }
 
   export type UserCreateWithoutFilesInput = {
     id?: string
     name: string
     email: string
-    username: string
+    createdAt?: Date | string
     password?: string | null
-    provider?: $Enums.AuthProvider
     providerId?: string | null
     refreshToken?: string | null
+    updatedAt?: Date | string
+    username: string
+    provider?: $Enums.AuthProvider
     otp?: string | null
     otpvalidity?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    sign?: SignatureCreateNestedManyWithoutUserInput
+    Signature?: SignatureCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutFilesInput = {
     id?: string
     name: string
     email: string
-    username: string
+    createdAt?: Date | string
     password?: string | null
-    provider?: $Enums.AuthProvider
     providerId?: string | null
     refreshToken?: string | null
+    updatedAt?: Date | string
+    username: string
+    provider?: $Enums.AuthProvider
     otp?: string | null
     otpvalidity?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    sign?: SignatureUncheckedCreateNestedManyWithoutUserInput
+    Signature?: SignatureUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutFilesInput = {
     where: UserWhereUniqueInput
     create: XOR<UserCreateWithoutFilesInput, UserUncheckedCreateWithoutFilesInput>
+  }
+
+  export type SignatureUpsertWithWhereUniqueWithoutPdfInput = {
+    where: SignatureWhereUniqueInput
+    update: XOR<SignatureUpdateWithoutPdfInput, SignatureUncheckedUpdateWithoutPdfInput>
+    create: XOR<SignatureCreateWithoutPdfInput, SignatureUncheckedCreateWithoutPdfInput>
+  }
+
+  export type SignatureUpdateWithWhereUniqueWithoutPdfInput = {
+    where: SignatureWhereUniqueInput
+    data: XOR<SignatureUpdateWithoutPdfInput, SignatureUncheckedUpdateWithoutPdfInput>
+  }
+
+  export type SignatureUpdateManyWithWhereWithoutPdfInput = {
+    where: SignatureScalarWhereInput
+    data: XOR<SignatureUpdateManyMutationInput, SignatureUncheckedUpdateManyWithoutPdfInput>
   }
 
   export type UserUpsertWithoutFilesInput = {
@@ -5759,125 +6339,183 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    username?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    provider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
     providerId?: NullableStringFieldUpdateOperationsInput | string | null
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    username?: StringFieldUpdateOperationsInput | string
+    provider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
     otp?: NullableStringFieldUpdateOperationsInput | string | null
     otpvalidity?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sign?: SignatureUpdateManyWithoutUserNestedInput
+    Signature?: SignatureUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutFilesInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    username?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    provider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
     providerId?: NullableStringFieldUpdateOperationsInput | string | null
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    username?: StringFieldUpdateOperationsInput | string
+    provider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
     otp?: NullableStringFieldUpdateOperationsInput | string | null
     otpvalidity?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sign?: SignatureUncheckedUpdateManyWithoutUserNestedInput
+    Signature?: SignatureUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type UserCreateWithoutSignInput = {
+  export type UserCreateWithoutSignatureInput = {
     id?: string
     name: string
     email: string
-    username: string
+    createdAt?: Date | string
     password?: string | null
-    provider?: $Enums.AuthProvider
     providerId?: string | null
     refreshToken?: string | null
+    updatedAt?: Date | string
+    username: string
+    provider?: $Enums.AuthProvider
     otp?: string | null
     otpvalidity?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
     files?: FileCreateNestedManyWithoutUserInput
   }
 
-  export type UserUncheckedCreateWithoutSignInput = {
+  export type UserUncheckedCreateWithoutSignatureInput = {
     id?: string
     name: string
     email: string
-    username: string
+    createdAt?: Date | string
     password?: string | null
-    provider?: $Enums.AuthProvider
     providerId?: string | null
     refreshToken?: string | null
+    updatedAt?: Date | string
+    username: string
+    provider?: $Enums.AuthProvider
     otp?: string | null
     otpvalidity?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
     files?: FileUncheckedCreateNestedManyWithoutUserInput
   }
 
-  export type UserCreateOrConnectWithoutSignInput = {
+  export type UserCreateOrConnectWithoutSignatureInput = {
     where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutSignInput, UserUncheckedCreateWithoutSignInput>
+    create: XOR<UserCreateWithoutSignatureInput, UserUncheckedCreateWithoutSignatureInput>
   }
 
-  export type UserUpsertWithoutSignInput = {
-    update: XOR<UserUpdateWithoutSignInput, UserUncheckedUpdateWithoutSignInput>
-    create: XOR<UserCreateWithoutSignInput, UserUncheckedCreateWithoutSignInput>
+  export type FileCreateWithoutSignatureInput = {
+    id?: string
+    fileurl: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    filename: string
+    user?: UserCreateNestedOneWithoutFilesInput
+  }
+
+  export type FileUncheckedCreateWithoutSignatureInput = {
+    id?: string
+    fileurl: string
+    userId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    filename: string
+  }
+
+  export type FileCreateOrConnectWithoutSignatureInput = {
+    where: FileWhereUniqueInput
+    create: XOR<FileCreateWithoutSignatureInput, FileUncheckedCreateWithoutSignatureInput>
+  }
+
+  export type UserUpsertWithoutSignatureInput = {
+    update: XOR<UserUpdateWithoutSignatureInput, UserUncheckedUpdateWithoutSignatureInput>
+    create: XOR<UserCreateWithoutSignatureInput, UserUncheckedCreateWithoutSignatureInput>
     where?: UserWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutSignInput = {
+  export type UserUpdateToOneWithWhereWithoutSignatureInput = {
     where?: UserWhereInput
-    data: XOR<UserUpdateWithoutSignInput, UserUncheckedUpdateWithoutSignInput>
+    data: XOR<UserUpdateWithoutSignatureInput, UserUncheckedUpdateWithoutSignatureInput>
   }
 
-  export type UserUpdateWithoutSignInput = {
+  export type UserUpdateWithoutSignatureInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    username?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    provider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
     providerId?: NullableStringFieldUpdateOperationsInput | string | null
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    username?: StringFieldUpdateOperationsInput | string
+    provider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
     otp?: NullableStringFieldUpdateOperationsInput | string | null
     otpvalidity?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     files?: FileUpdateManyWithoutUserNestedInput
   }
 
-  export type UserUncheckedUpdateWithoutSignInput = {
+  export type UserUncheckedUpdateWithoutSignatureInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    username?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    provider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
     providerId?: NullableStringFieldUpdateOperationsInput | string | null
     refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    username?: StringFieldUpdateOperationsInput | string
+    provider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
     otp?: NullableStringFieldUpdateOperationsInput | string | null
     otpvalidity?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    files?: FileUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type FileUpsertWithoutSignatureInput = {
+    update: XOR<FileUpdateWithoutSignatureInput, FileUncheckedUpdateWithoutSignatureInput>
+    create: XOR<FileCreateWithoutSignatureInput, FileUncheckedCreateWithoutSignatureInput>
+    where?: FileWhereInput
+  }
+
+  export type FileUpdateToOneWithWhereWithoutSignatureInput = {
+    where?: FileWhereInput
+    data: XOR<FileUpdateWithoutSignatureInput, FileUncheckedUpdateWithoutSignatureInput>
+  }
+
+  export type FileUpdateWithoutSignatureInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fileurl?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    files?: FileUncheckedUpdateManyWithoutUserNestedInput
+    filename?: StringFieldUpdateOperationsInput | string
+    user?: UserUpdateOneWithoutFilesNestedInput
+  }
+
+  export type FileUncheckedUpdateWithoutSignatureInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fileurl?: StringFieldUpdateOperationsInput | string
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    filename?: StringFieldUpdateOperationsInput | string
   }
 
   export type FileCreateManyUserInput = {
     id?: string
     fileurl: string
-    filename: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    filename: string
   }
 
   export type SignatureCreateManyUserInput = {
     id?: string
-    signatureurl?: string | null
+    signatureUrl: string
+    page: number
+    x: number
+    y: number
+    width: number
+    height: number
+    pdfId: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5885,44 +6523,116 @@ export namespace Prisma {
   export type FileUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     fileurl?: StringFieldUpdateOperationsInput | string
-    filename?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    filename?: StringFieldUpdateOperationsInput | string
+    signature?: SignatureUpdateManyWithoutPdfNestedInput
   }
 
   export type FileUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     fileurl?: StringFieldUpdateOperationsInput | string
-    filename?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    filename?: StringFieldUpdateOperationsInput | string
+    signature?: SignatureUncheckedUpdateManyWithoutPdfNestedInput
   }
 
   export type FileUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     fileurl?: StringFieldUpdateOperationsInput | string
-    filename?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    filename?: StringFieldUpdateOperationsInput | string
   }
 
   export type SignatureUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    signatureurl?: NullableStringFieldUpdateOperationsInput | string | null
+    signatureUrl?: StringFieldUpdateOperationsInput | string
+    page?: IntFieldUpdateOperationsInput | number
+    x?: FloatFieldUpdateOperationsInput | number
+    y?: FloatFieldUpdateOperationsInput | number
+    width?: FloatFieldUpdateOperationsInput | number
+    height?: FloatFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Pdf?: FileUpdateOneRequiredWithoutSignatureNestedInput
   }
 
   export type SignatureUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    signatureurl?: NullableStringFieldUpdateOperationsInput | string | null
+    signatureUrl?: StringFieldUpdateOperationsInput | string
+    page?: IntFieldUpdateOperationsInput | number
+    x?: FloatFieldUpdateOperationsInput | number
+    y?: FloatFieldUpdateOperationsInput | number
+    width?: FloatFieldUpdateOperationsInput | number
+    height?: FloatFieldUpdateOperationsInput | number
+    pdfId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type SignatureUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    signatureurl?: NullableStringFieldUpdateOperationsInput | string | null
+    signatureUrl?: StringFieldUpdateOperationsInput | string
+    page?: IntFieldUpdateOperationsInput | number
+    x?: FloatFieldUpdateOperationsInput | number
+    y?: FloatFieldUpdateOperationsInput | number
+    width?: FloatFieldUpdateOperationsInput | number
+    height?: FloatFieldUpdateOperationsInput | number
+    pdfId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SignatureCreateManyPdfInput = {
+    id?: string
+    signatureUrl: string
+    page: number
+    x: number
+    y: number
+    width: number
+    height: number
+    userId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SignatureUpdateWithoutPdfInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    signatureUrl?: StringFieldUpdateOperationsInput | string
+    page?: IntFieldUpdateOperationsInput | number
+    x?: FloatFieldUpdateOperationsInput | number
+    y?: FloatFieldUpdateOperationsInput | number
+    width?: FloatFieldUpdateOperationsInput | number
+    height?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    User?: UserUpdateOneWithoutSignatureNestedInput
+  }
+
+  export type SignatureUncheckedUpdateWithoutPdfInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    signatureUrl?: StringFieldUpdateOperationsInput | string
+    page?: IntFieldUpdateOperationsInput | number
+    x?: FloatFieldUpdateOperationsInput | number
+    y?: FloatFieldUpdateOperationsInput | number
+    width?: FloatFieldUpdateOperationsInput | number
+    height?: FloatFieldUpdateOperationsInput | number
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SignatureUncheckedUpdateManyWithoutPdfInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    signatureUrl?: StringFieldUpdateOperationsInput | string
+    page?: IntFieldUpdateOperationsInput | number
+    x?: FloatFieldUpdateOperationsInput | number
+    y?: FloatFieldUpdateOperationsInput | number
+    width?: FloatFieldUpdateOperationsInput | number
+    height?: FloatFieldUpdateOperationsInput | number
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
