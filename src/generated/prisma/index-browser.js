@@ -159,6 +159,16 @@ exports.Prisma.SignatureScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.SharedLinkScalarFieldEnum = {
+  id: 'id',
+  link: 'link',
+  fileId: 'fileId',
+  sharedby: 'sharedby',
+  sharedWith: 'sharedWith',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -181,7 +191,8 @@ exports.AuthProvider = exports.$Enums.AuthProvider = {
 exports.Prisma.ModelName = {
   User: 'User',
   File: 'File',
-  Signature: 'Signature'
+  Signature: 'Signature',
+  sharedLink: 'sharedLink'
 };
 
 /**

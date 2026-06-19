@@ -28,6 +28,11 @@ export type File = $Result.DefaultSelection<Prisma.$FilePayload>
  * 
  */
 export type Signature = $Result.DefaultSelection<Prisma.$SignaturePayload>
+/**
+ * Model sharedLink
+ * 
+ */
+export type sharedLink = $Result.DefaultSelection<Prisma.$sharedLinkPayload>
 
 /**
  * Enums
@@ -196,6 +201,16 @@ export class PrismaClient<
     * ```
     */
   get signature(): Prisma.SignatureDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.sharedLink`: Exposes CRUD operations for the **sharedLink** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SharedLinks
+    * const sharedLinks = await prisma.sharedLink.findMany()
+    * ```
+    */
+  get sharedLink(): Prisma.sharedLinkDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -632,7 +647,8 @@ export namespace Prisma {
   export const ModelName: {
     User: 'User',
     File: 'File',
-    Signature: 'Signature'
+    Signature: 'Signature',
+    sharedLink: 'sharedLink'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -648,7 +664,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "file" | "signature"
+      modelProps: "user" | "file" | "signature" | "sharedLink"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -874,6 +890,80 @@ export namespace Prisma {
           }
         }
       }
+      sharedLink: {
+        payload: Prisma.$sharedLinkPayload<ExtArgs>
+        fields: Prisma.sharedLinkFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.sharedLinkFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sharedLinkPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.sharedLinkFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sharedLinkPayload>
+          }
+          findFirst: {
+            args: Prisma.sharedLinkFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sharedLinkPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.sharedLinkFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sharedLinkPayload>
+          }
+          findMany: {
+            args: Prisma.sharedLinkFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sharedLinkPayload>[]
+          }
+          create: {
+            args: Prisma.sharedLinkCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sharedLinkPayload>
+          }
+          createMany: {
+            args: Prisma.sharedLinkCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.sharedLinkCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sharedLinkPayload>[]
+          }
+          delete: {
+            args: Prisma.sharedLinkDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sharedLinkPayload>
+          }
+          update: {
+            args: Prisma.sharedLinkUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sharedLinkPayload>
+          }
+          deleteMany: {
+            args: Prisma.sharedLinkDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.sharedLinkUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.sharedLinkUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sharedLinkPayload>[]
+          }
+          upsert: {
+            args: Prisma.sharedLinkUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sharedLinkPayload>
+          }
+          aggregate: {
+            args: Prisma.SharedLinkAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSharedLink>
+          }
+          groupBy: {
+            args: Prisma.sharedLinkGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SharedLinkGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.sharedLinkCountArgs<ExtArgs>
+            result: $Utils.Optional<SharedLinkCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -985,6 +1075,7 @@ export namespace Prisma {
     user?: UserOmit
     file?: FileOmit
     signature?: SignatureOmit
+    sharedLink?: sharedLinkOmit
   }
 
   /* Types for Logging */
@@ -4686,6 +4777,1028 @@ export namespace Prisma {
 
 
   /**
+   * Model sharedLink
+   */
+
+  export type AggregateSharedLink = {
+    _count: SharedLinkCountAggregateOutputType | null
+    _min: SharedLinkMinAggregateOutputType | null
+    _max: SharedLinkMaxAggregateOutputType | null
+  }
+
+  export type SharedLinkMinAggregateOutputType = {
+    id: string | null
+    link: string | null
+    fileId: string | null
+    sharedby: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type SharedLinkMaxAggregateOutputType = {
+    id: string | null
+    link: string | null
+    fileId: string | null
+    sharedby: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type SharedLinkCountAggregateOutputType = {
+    id: number
+    link: number
+    fileId: number
+    sharedby: number
+    sharedWith: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type SharedLinkMinAggregateInputType = {
+    id?: true
+    link?: true
+    fileId?: true
+    sharedby?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type SharedLinkMaxAggregateInputType = {
+    id?: true
+    link?: true
+    fileId?: true
+    sharedby?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type SharedLinkCountAggregateInputType = {
+    id?: true
+    link?: true
+    fileId?: true
+    sharedby?: true
+    sharedWith?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type SharedLinkAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which sharedLink to aggregate.
+     */
+    where?: sharedLinkWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of sharedLinks to fetch.
+     */
+    orderBy?: sharedLinkOrderByWithRelationInput | sharedLinkOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: sharedLinkWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` sharedLinks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` sharedLinks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned sharedLinks
+    **/
+    _count?: true | SharedLinkCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SharedLinkMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SharedLinkMaxAggregateInputType
+  }
+
+  export type GetSharedLinkAggregateType<T extends SharedLinkAggregateArgs> = {
+        [P in keyof T & keyof AggregateSharedLink]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSharedLink[P]>
+      : GetScalarType<T[P], AggregateSharedLink[P]>
+  }
+
+
+
+
+  export type sharedLinkGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: sharedLinkWhereInput
+    orderBy?: sharedLinkOrderByWithAggregationInput | sharedLinkOrderByWithAggregationInput[]
+    by: SharedLinkScalarFieldEnum[] | SharedLinkScalarFieldEnum
+    having?: sharedLinkScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SharedLinkCountAggregateInputType | true
+    _min?: SharedLinkMinAggregateInputType
+    _max?: SharedLinkMaxAggregateInputType
+  }
+
+  export type SharedLinkGroupByOutputType = {
+    id: string
+    link: string
+    fileId: string
+    sharedby: string
+    sharedWith: string[]
+    createdAt: Date
+    updatedAt: Date
+    _count: SharedLinkCountAggregateOutputType | null
+    _min: SharedLinkMinAggregateOutputType | null
+    _max: SharedLinkMaxAggregateOutputType | null
+  }
+
+  type GetSharedLinkGroupByPayload<T extends sharedLinkGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SharedLinkGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SharedLinkGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SharedLinkGroupByOutputType[P]>
+            : GetScalarType<T[P], SharedLinkGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type sharedLinkSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    link?: boolean
+    fileId?: boolean
+    sharedby?: boolean
+    sharedWith?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["sharedLink"]>
+
+  export type sharedLinkSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    link?: boolean
+    fileId?: boolean
+    sharedby?: boolean
+    sharedWith?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["sharedLink"]>
+
+  export type sharedLinkSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    link?: boolean
+    fileId?: boolean
+    sharedby?: boolean
+    sharedWith?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["sharedLink"]>
+
+  export type sharedLinkSelectScalar = {
+    id?: boolean
+    link?: boolean
+    fileId?: boolean
+    sharedby?: boolean
+    sharedWith?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type sharedLinkOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "link" | "fileId" | "sharedby" | "sharedWith" | "createdAt" | "updatedAt", ExtArgs["result"]["sharedLink"]>
+
+  export type $sharedLinkPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "sharedLink"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      link: string
+      fileId: string
+      sharedby: string
+      sharedWith: string[]
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["sharedLink"]>
+    composites: {}
+  }
+
+  type sharedLinkGetPayload<S extends boolean | null | undefined | sharedLinkDefaultArgs> = $Result.GetResult<Prisma.$sharedLinkPayload, S>
+
+  type sharedLinkCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<sharedLinkFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SharedLinkCountAggregateInputType | true
+    }
+
+  export interface sharedLinkDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['sharedLink'], meta: { name: 'sharedLink' } }
+    /**
+     * Find zero or one SharedLink that matches the filter.
+     * @param {sharedLinkFindUniqueArgs} args - Arguments to find a SharedLink
+     * @example
+     * // Get one SharedLink
+     * const sharedLink = await prisma.sharedLink.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends sharedLinkFindUniqueArgs>(args: SelectSubset<T, sharedLinkFindUniqueArgs<ExtArgs>>): Prisma__sharedLinkClient<$Result.GetResult<Prisma.$sharedLinkPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one SharedLink that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {sharedLinkFindUniqueOrThrowArgs} args - Arguments to find a SharedLink
+     * @example
+     * // Get one SharedLink
+     * const sharedLink = await prisma.sharedLink.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends sharedLinkFindUniqueOrThrowArgs>(args: SelectSubset<T, sharedLinkFindUniqueOrThrowArgs<ExtArgs>>): Prisma__sharedLinkClient<$Result.GetResult<Prisma.$sharedLinkPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SharedLink that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {sharedLinkFindFirstArgs} args - Arguments to find a SharedLink
+     * @example
+     * // Get one SharedLink
+     * const sharedLink = await prisma.sharedLink.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends sharedLinkFindFirstArgs>(args?: SelectSubset<T, sharedLinkFindFirstArgs<ExtArgs>>): Prisma__sharedLinkClient<$Result.GetResult<Prisma.$sharedLinkPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SharedLink that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {sharedLinkFindFirstOrThrowArgs} args - Arguments to find a SharedLink
+     * @example
+     * // Get one SharedLink
+     * const sharedLink = await prisma.sharedLink.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends sharedLinkFindFirstOrThrowArgs>(args?: SelectSubset<T, sharedLinkFindFirstOrThrowArgs<ExtArgs>>): Prisma__sharedLinkClient<$Result.GetResult<Prisma.$sharedLinkPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more SharedLinks that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {sharedLinkFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all SharedLinks
+     * const sharedLinks = await prisma.sharedLink.findMany()
+     * 
+     * // Get first 10 SharedLinks
+     * const sharedLinks = await prisma.sharedLink.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const sharedLinkWithIdOnly = await prisma.sharedLink.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends sharedLinkFindManyArgs>(args?: SelectSubset<T, sharedLinkFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$sharedLinkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a SharedLink.
+     * @param {sharedLinkCreateArgs} args - Arguments to create a SharedLink.
+     * @example
+     * // Create one SharedLink
+     * const SharedLink = await prisma.sharedLink.create({
+     *   data: {
+     *     // ... data to create a SharedLink
+     *   }
+     * })
+     * 
+     */
+    create<T extends sharedLinkCreateArgs>(args: SelectSubset<T, sharedLinkCreateArgs<ExtArgs>>): Prisma__sharedLinkClient<$Result.GetResult<Prisma.$sharedLinkPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many SharedLinks.
+     * @param {sharedLinkCreateManyArgs} args - Arguments to create many SharedLinks.
+     * @example
+     * // Create many SharedLinks
+     * const sharedLink = await prisma.sharedLink.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends sharedLinkCreateManyArgs>(args?: SelectSubset<T, sharedLinkCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many SharedLinks and returns the data saved in the database.
+     * @param {sharedLinkCreateManyAndReturnArgs} args - Arguments to create many SharedLinks.
+     * @example
+     * // Create many SharedLinks
+     * const sharedLink = await prisma.sharedLink.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many SharedLinks and only return the `id`
+     * const sharedLinkWithIdOnly = await prisma.sharedLink.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends sharedLinkCreateManyAndReturnArgs>(args?: SelectSubset<T, sharedLinkCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$sharedLinkPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a SharedLink.
+     * @param {sharedLinkDeleteArgs} args - Arguments to delete one SharedLink.
+     * @example
+     * // Delete one SharedLink
+     * const SharedLink = await prisma.sharedLink.delete({
+     *   where: {
+     *     // ... filter to delete one SharedLink
+     *   }
+     * })
+     * 
+     */
+    delete<T extends sharedLinkDeleteArgs>(args: SelectSubset<T, sharedLinkDeleteArgs<ExtArgs>>): Prisma__sharedLinkClient<$Result.GetResult<Prisma.$sharedLinkPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one SharedLink.
+     * @param {sharedLinkUpdateArgs} args - Arguments to update one SharedLink.
+     * @example
+     * // Update one SharedLink
+     * const sharedLink = await prisma.sharedLink.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends sharedLinkUpdateArgs>(args: SelectSubset<T, sharedLinkUpdateArgs<ExtArgs>>): Prisma__sharedLinkClient<$Result.GetResult<Prisma.$sharedLinkPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more SharedLinks.
+     * @param {sharedLinkDeleteManyArgs} args - Arguments to filter SharedLinks to delete.
+     * @example
+     * // Delete a few SharedLinks
+     * const { count } = await prisma.sharedLink.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends sharedLinkDeleteManyArgs>(args?: SelectSubset<T, sharedLinkDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SharedLinks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {sharedLinkUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many SharedLinks
+     * const sharedLink = await prisma.sharedLink.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends sharedLinkUpdateManyArgs>(args: SelectSubset<T, sharedLinkUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SharedLinks and returns the data updated in the database.
+     * @param {sharedLinkUpdateManyAndReturnArgs} args - Arguments to update many SharedLinks.
+     * @example
+     * // Update many SharedLinks
+     * const sharedLink = await prisma.sharedLink.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more SharedLinks and only return the `id`
+     * const sharedLinkWithIdOnly = await prisma.sharedLink.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends sharedLinkUpdateManyAndReturnArgs>(args: SelectSubset<T, sharedLinkUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$sharedLinkPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one SharedLink.
+     * @param {sharedLinkUpsertArgs} args - Arguments to update or create a SharedLink.
+     * @example
+     * // Update or create a SharedLink
+     * const sharedLink = await prisma.sharedLink.upsert({
+     *   create: {
+     *     // ... data to create a SharedLink
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the SharedLink we want to update
+     *   }
+     * })
+     */
+    upsert<T extends sharedLinkUpsertArgs>(args: SelectSubset<T, sharedLinkUpsertArgs<ExtArgs>>): Prisma__sharedLinkClient<$Result.GetResult<Prisma.$sharedLinkPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of SharedLinks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {sharedLinkCountArgs} args - Arguments to filter SharedLinks to count.
+     * @example
+     * // Count the number of SharedLinks
+     * const count = await prisma.sharedLink.count({
+     *   where: {
+     *     // ... the filter for the SharedLinks we want to count
+     *   }
+     * })
+    **/
+    count<T extends sharedLinkCountArgs>(
+      args?: Subset<T, sharedLinkCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SharedLinkCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a SharedLink.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SharedLinkAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SharedLinkAggregateArgs>(args: Subset<T, SharedLinkAggregateArgs>): Prisma.PrismaPromise<GetSharedLinkAggregateType<T>>
+
+    /**
+     * Group by SharedLink.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {sharedLinkGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends sharedLinkGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: sharedLinkGroupByArgs['orderBy'] }
+        : { orderBy?: sharedLinkGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, sharedLinkGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSharedLinkGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the sharedLink model
+   */
+  readonly fields: sharedLinkFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for sharedLink.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__sharedLinkClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the sharedLink model
+   */
+  interface sharedLinkFieldRefs {
+    readonly id: FieldRef<"sharedLink", 'String'>
+    readonly link: FieldRef<"sharedLink", 'String'>
+    readonly fileId: FieldRef<"sharedLink", 'String'>
+    readonly sharedby: FieldRef<"sharedLink", 'String'>
+    readonly sharedWith: FieldRef<"sharedLink", 'String[]'>
+    readonly createdAt: FieldRef<"sharedLink", 'DateTime'>
+    readonly updatedAt: FieldRef<"sharedLink", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * sharedLink findUnique
+   */
+  export type sharedLinkFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sharedLink
+     */
+    select?: sharedLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sharedLink
+     */
+    omit?: sharedLinkOmit<ExtArgs> | null
+    /**
+     * Filter, which sharedLink to fetch.
+     */
+    where: sharedLinkWhereUniqueInput
+  }
+
+  /**
+   * sharedLink findUniqueOrThrow
+   */
+  export type sharedLinkFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sharedLink
+     */
+    select?: sharedLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sharedLink
+     */
+    omit?: sharedLinkOmit<ExtArgs> | null
+    /**
+     * Filter, which sharedLink to fetch.
+     */
+    where: sharedLinkWhereUniqueInput
+  }
+
+  /**
+   * sharedLink findFirst
+   */
+  export type sharedLinkFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sharedLink
+     */
+    select?: sharedLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sharedLink
+     */
+    omit?: sharedLinkOmit<ExtArgs> | null
+    /**
+     * Filter, which sharedLink to fetch.
+     */
+    where?: sharedLinkWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of sharedLinks to fetch.
+     */
+    orderBy?: sharedLinkOrderByWithRelationInput | sharedLinkOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for sharedLinks.
+     */
+    cursor?: sharedLinkWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` sharedLinks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` sharedLinks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of sharedLinks.
+     */
+    distinct?: SharedLinkScalarFieldEnum | SharedLinkScalarFieldEnum[]
+  }
+
+  /**
+   * sharedLink findFirstOrThrow
+   */
+  export type sharedLinkFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sharedLink
+     */
+    select?: sharedLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sharedLink
+     */
+    omit?: sharedLinkOmit<ExtArgs> | null
+    /**
+     * Filter, which sharedLink to fetch.
+     */
+    where?: sharedLinkWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of sharedLinks to fetch.
+     */
+    orderBy?: sharedLinkOrderByWithRelationInput | sharedLinkOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for sharedLinks.
+     */
+    cursor?: sharedLinkWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` sharedLinks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` sharedLinks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of sharedLinks.
+     */
+    distinct?: SharedLinkScalarFieldEnum | SharedLinkScalarFieldEnum[]
+  }
+
+  /**
+   * sharedLink findMany
+   */
+  export type sharedLinkFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sharedLink
+     */
+    select?: sharedLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sharedLink
+     */
+    omit?: sharedLinkOmit<ExtArgs> | null
+    /**
+     * Filter, which sharedLinks to fetch.
+     */
+    where?: sharedLinkWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of sharedLinks to fetch.
+     */
+    orderBy?: sharedLinkOrderByWithRelationInput | sharedLinkOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing sharedLinks.
+     */
+    cursor?: sharedLinkWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` sharedLinks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` sharedLinks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of sharedLinks.
+     */
+    distinct?: SharedLinkScalarFieldEnum | SharedLinkScalarFieldEnum[]
+  }
+
+  /**
+   * sharedLink create
+   */
+  export type sharedLinkCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sharedLink
+     */
+    select?: sharedLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sharedLink
+     */
+    omit?: sharedLinkOmit<ExtArgs> | null
+    /**
+     * The data needed to create a sharedLink.
+     */
+    data: XOR<sharedLinkCreateInput, sharedLinkUncheckedCreateInput>
+  }
+
+  /**
+   * sharedLink createMany
+   */
+  export type sharedLinkCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many sharedLinks.
+     */
+    data: sharedLinkCreateManyInput | sharedLinkCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * sharedLink createManyAndReturn
+   */
+  export type sharedLinkCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sharedLink
+     */
+    select?: sharedLinkSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the sharedLink
+     */
+    omit?: sharedLinkOmit<ExtArgs> | null
+    /**
+     * The data used to create many sharedLinks.
+     */
+    data: sharedLinkCreateManyInput | sharedLinkCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * sharedLink update
+   */
+  export type sharedLinkUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sharedLink
+     */
+    select?: sharedLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sharedLink
+     */
+    omit?: sharedLinkOmit<ExtArgs> | null
+    /**
+     * The data needed to update a sharedLink.
+     */
+    data: XOR<sharedLinkUpdateInput, sharedLinkUncheckedUpdateInput>
+    /**
+     * Choose, which sharedLink to update.
+     */
+    where: sharedLinkWhereUniqueInput
+  }
+
+  /**
+   * sharedLink updateMany
+   */
+  export type sharedLinkUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update sharedLinks.
+     */
+    data: XOR<sharedLinkUpdateManyMutationInput, sharedLinkUncheckedUpdateManyInput>
+    /**
+     * Filter which sharedLinks to update
+     */
+    where?: sharedLinkWhereInput
+    /**
+     * Limit how many sharedLinks to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * sharedLink updateManyAndReturn
+   */
+  export type sharedLinkUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sharedLink
+     */
+    select?: sharedLinkSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the sharedLink
+     */
+    omit?: sharedLinkOmit<ExtArgs> | null
+    /**
+     * The data used to update sharedLinks.
+     */
+    data: XOR<sharedLinkUpdateManyMutationInput, sharedLinkUncheckedUpdateManyInput>
+    /**
+     * Filter which sharedLinks to update
+     */
+    where?: sharedLinkWhereInput
+    /**
+     * Limit how many sharedLinks to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * sharedLink upsert
+   */
+  export type sharedLinkUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sharedLink
+     */
+    select?: sharedLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sharedLink
+     */
+    omit?: sharedLinkOmit<ExtArgs> | null
+    /**
+     * The filter to search for the sharedLink to update in case it exists.
+     */
+    where: sharedLinkWhereUniqueInput
+    /**
+     * In case the sharedLink found by the `where` argument doesn't exist, create a new sharedLink with this data.
+     */
+    create: XOR<sharedLinkCreateInput, sharedLinkUncheckedCreateInput>
+    /**
+     * In case the sharedLink was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<sharedLinkUpdateInput, sharedLinkUncheckedUpdateInput>
+  }
+
+  /**
+   * sharedLink delete
+   */
+  export type sharedLinkDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sharedLink
+     */
+    select?: sharedLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sharedLink
+     */
+    omit?: sharedLinkOmit<ExtArgs> | null
+    /**
+     * Filter which sharedLink to delete.
+     */
+    where: sharedLinkWhereUniqueInput
+  }
+
+  /**
+   * sharedLink deleteMany
+   */
+  export type sharedLinkDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which sharedLinks to delete
+     */
+    where?: sharedLinkWhereInput
+    /**
+     * Limit how many sharedLinks to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * sharedLink without action
+   */
+  export type sharedLinkDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sharedLink
+     */
+    select?: sharedLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sharedLink
+     */
+    omit?: sharedLinkOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -4745,6 +5858,19 @@ export namespace Prisma {
   };
 
   export type SignatureScalarFieldEnum = (typeof SignatureScalarFieldEnum)[keyof typeof SignatureScalarFieldEnum]
+
+
+  export const SharedLinkScalarFieldEnum: {
+    id: 'id',
+    link: 'link',
+    fileId: 'fileId',
+    sharedby: 'sharedby',
+    sharedWith: 'sharedWith',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type SharedLinkScalarFieldEnum = (typeof SharedLinkScalarFieldEnum)[keyof typeof SharedLinkScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -5100,6 +6226,68 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"Signature"> | Date | string
   }
 
+  export type sharedLinkWhereInput = {
+    AND?: sharedLinkWhereInput | sharedLinkWhereInput[]
+    OR?: sharedLinkWhereInput[]
+    NOT?: sharedLinkWhereInput | sharedLinkWhereInput[]
+    id?: StringFilter<"sharedLink"> | string
+    link?: StringFilter<"sharedLink"> | string
+    fileId?: StringFilter<"sharedLink"> | string
+    sharedby?: StringFilter<"sharedLink"> | string
+    sharedWith?: StringNullableListFilter<"sharedLink">
+    createdAt?: DateTimeFilter<"sharedLink"> | Date | string
+    updatedAt?: DateTimeFilter<"sharedLink"> | Date | string
+  }
+
+  export type sharedLinkOrderByWithRelationInput = {
+    id?: SortOrder
+    link?: SortOrder
+    fileId?: SortOrder
+    sharedby?: SortOrder
+    sharedWith?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type sharedLinkWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    link?: string
+    AND?: sharedLinkWhereInput | sharedLinkWhereInput[]
+    OR?: sharedLinkWhereInput[]
+    NOT?: sharedLinkWhereInput | sharedLinkWhereInput[]
+    fileId?: StringFilter<"sharedLink"> | string
+    sharedby?: StringFilter<"sharedLink"> | string
+    sharedWith?: StringNullableListFilter<"sharedLink">
+    createdAt?: DateTimeFilter<"sharedLink"> | Date | string
+    updatedAt?: DateTimeFilter<"sharedLink"> | Date | string
+  }, "id" | "link">
+
+  export type sharedLinkOrderByWithAggregationInput = {
+    id?: SortOrder
+    link?: SortOrder
+    fileId?: SortOrder
+    sharedby?: SortOrder
+    sharedWith?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: sharedLinkCountOrderByAggregateInput
+    _max?: sharedLinkMaxOrderByAggregateInput
+    _min?: sharedLinkMinOrderByAggregateInput
+  }
+
+  export type sharedLinkScalarWhereWithAggregatesInput = {
+    AND?: sharedLinkScalarWhereWithAggregatesInput | sharedLinkScalarWhereWithAggregatesInput[]
+    OR?: sharedLinkScalarWhereWithAggregatesInput[]
+    NOT?: sharedLinkScalarWhereWithAggregatesInput | sharedLinkScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"sharedLink"> | string
+    link?: StringWithAggregatesFilter<"sharedLink"> | string
+    fileId?: StringWithAggregatesFilter<"sharedLink"> | string
+    sharedby?: StringWithAggregatesFilter<"sharedLink"> | string
+    sharedWith?: StringNullableListFilter<"sharedLink">
+    createdAt?: DateTimeWithAggregatesFilter<"sharedLink"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"sharedLink"> | Date | string
+  }
+
   export type UserCreateInput = {
     id?: string
     name: string
@@ -5378,6 +6566,76 @@ export namespace Prisma {
     height?: FloatFieldUpdateOperationsInput | number
     userId?: NullableStringFieldUpdateOperationsInput | string | null
     pdfId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type sharedLinkCreateInput = {
+    id?: string
+    link: string
+    fileId: string
+    sharedby: string
+    sharedWith?: sharedLinkCreatesharedWithInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type sharedLinkUncheckedCreateInput = {
+    id?: string
+    link: string
+    fileId: string
+    sharedby: string
+    sharedWith?: sharedLinkCreatesharedWithInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type sharedLinkUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    link?: StringFieldUpdateOperationsInput | string
+    fileId?: StringFieldUpdateOperationsInput | string
+    sharedby?: StringFieldUpdateOperationsInput | string
+    sharedWith?: sharedLinkUpdatesharedWithInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type sharedLinkUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    link?: StringFieldUpdateOperationsInput | string
+    fileId?: StringFieldUpdateOperationsInput | string
+    sharedby?: StringFieldUpdateOperationsInput | string
+    sharedWith?: sharedLinkUpdatesharedWithInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type sharedLinkCreateManyInput = {
+    id?: string
+    link: string
+    fileId: string
+    sharedby: string
+    sharedWith?: sharedLinkCreatesharedWithInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type sharedLinkUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    link?: StringFieldUpdateOperationsInput | string
+    fileId?: StringFieldUpdateOperationsInput | string
+    sharedby?: StringFieldUpdateOperationsInput | string
+    sharedWith?: sharedLinkUpdatesharedWithInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type sharedLinkUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    link?: StringFieldUpdateOperationsInput | string
+    fileId?: StringFieldUpdateOperationsInput | string
+    sharedby?: StringFieldUpdateOperationsInput | string
+    sharedWith?: sharedLinkUpdatesharedWithInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5737,6 +6995,42 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
+  export type StringNullableListFilter<$PrismaModel = never> = {
+    equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    has?: string | StringFieldRefInput<$PrismaModel> | null
+    hasEvery?: string[] | ListStringFieldRefInput<$PrismaModel>
+    hasSome?: string[] | ListStringFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
+  }
+
+  export type sharedLinkCountOrderByAggregateInput = {
+    id?: SortOrder
+    link?: SortOrder
+    fileId?: SortOrder
+    sharedby?: SortOrder
+    sharedWith?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type sharedLinkMaxOrderByAggregateInput = {
+    id?: SortOrder
+    link?: SortOrder
+    fileId?: SortOrder
+    sharedby?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type sharedLinkMinOrderByAggregateInput = {
+    id?: SortOrder
+    link?: SortOrder
+    fileId?: SortOrder
+    sharedby?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
   export type FileCreateNestedManyWithoutUserInput = {
     create?: XOR<FileCreateWithoutUserInput, FileUncheckedCreateWithoutUserInput> | FileCreateWithoutUserInput[] | FileUncheckedCreateWithoutUserInput[]
     connectOrCreate?: FileCreateOrConnectWithoutUserInput | FileCreateOrConnectWithoutUserInput[]
@@ -5943,6 +7237,15 @@ export namespace Prisma {
     upsert?: FileUpsertWithoutSignatureInput
     connect?: FileWhereUniqueInput
     update?: XOR<XOR<FileUpdateToOneWithWhereWithoutSignatureInput, FileUpdateWithoutSignatureInput>, FileUncheckedUpdateWithoutSignatureInput>
+  }
+
+  export type sharedLinkCreatesharedWithInput = {
+    set: string[]
+  }
+
+  export type sharedLinkUpdatesharedWithInput = {
+    set?: string[]
+    push?: string | string[]
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {

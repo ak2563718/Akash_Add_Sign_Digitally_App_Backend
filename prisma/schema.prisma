@@ -22,6 +22,7 @@ model User {
   otpvalidity  DateTime?
   files        File[]
   Signature    Signature[]
+  sharedLinks  sharedLink[]
 }
 
 model File {
@@ -58,4 +59,16 @@ model Signature {
 enum AuthProvider {
   GOOGLE
   CREDENTIALS
+}
+
+
+model sharedLink {
+  id          String   @id @default(cuid())
+  link        String   @unique
+  fileId      String
+  sharedbyId  String?
+  user        User?    @relation(fields: [sharedby], references: [id])
+  sharedWith  String[] @default([])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }

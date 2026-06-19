@@ -9,7 +9,9 @@ import path from 'path'
 
 export const uploadfile = asyncHandler(async(req, res, next)=>{
     const path = req.file;
-    const result = await cloudinary.uploader.upload(path.path, async(error, result)=>{ if(error){ return next(new AppError('File upload failed', 500)) } })
+    const result = await cloudinary.uploader.upload(path.path, {
+      resource_type:'raw'
+    })
     const file = await prisma.file.create({
         data:{
             fileurl: result.secure_url,
@@ -42,9 +44,8 @@ export const previewFile = asyncHandler(async(req, res, next)=>{
     })
 })
 
-
-    // Download original PDF
-    export const finalizePdfWithSignatures = async (req, res) => {
+// Download original PDF
+export const finalizePdfWithSignatures = async (req, res) => {
       try {
         const { pdfId, signatures } = req.body;
 
@@ -184,10 +185,8 @@ export const previewFile = asyncHandler(async(req, res, next)=>{
 
         fs.writeFileSync(filepath, modifiedPdfBytes);
         const uploadedPdf = await cloudinary.uploader.upload(
-          filepath,
-          {
-            resource_type: "raw",
-            folder: "signed-pdfs",
+          filepath,{
+            resource_type:'raw'
           }
         );
 
@@ -219,4 +218,15 @@ export const previewFile = asyncHandler(async(req, res, next)=>{
             error.message || "Something went wrong",
         });
       }
-    };
+};
+
+
+export const createShareLink = asyncHandler(async(req, res, next)=>{
+  const userId = req.user;
+  const fileId = req.params.id;
+  const creatLink = process.env.LOCALHOST_URL + '/uploadsign'+'/'+fileId;
+  res.status(200).json({
+    message:"shared link created successsfully",
+    link:creatLink
+  })
+})
