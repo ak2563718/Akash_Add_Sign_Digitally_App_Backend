@@ -22,18 +22,20 @@ model User {
   otpvalidity  DateTime?
   files        File[]
   Signature    Signature[]
+  sharedLinks  sharedLink[]
 }
 
 model File {
-  id        String      @id @default(cuid())
-  fileurl   String
-  publicid  String
-  userId    String?
-  createdAt DateTime    @default(now())
-  updatedAt DateTime    @updatedAt
-  signature Signature[]
-  filename  String
-  user      User?       @relation(fields: [userId], references: [id])
+  id          String       @id @default(cuid())
+  fileurl     String
+  publicid    String
+  userId      String?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  signature   Signature[]
+  sharedLinks sharedLink[]
+  filename    String
+  user        User?        @relation(fields: [userId], references: [id])
 }
 
 model Signature {
@@ -64,7 +66,9 @@ model sharedLink {
   id         String   @id @default(cuid())
   link       String   @unique
   fileId     String
-  sharedby   String
+  file       File     @relation(fields: [fileId], references: [id])
+  sharedbyId String?
+  user       User?    @relation(fields: [sharedbyId], references: [id])
   sharedWith String[] @default([])
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt

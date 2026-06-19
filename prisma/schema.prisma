@@ -26,34 +26,35 @@ model User {
 }
 
 model File {
-  id        String   @id @default(cuid())
-  fileurl   String
-  publicid  String
-  userId    String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  signature Signature[]
-  filename  String
-  user      User?    @relation(fields: [userId], references: [id])
+  id          String       @id @default(cuid())
+  fileurl     String
+  publicid    String
+  userId      String?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  signature   Signature[]
+  sharedLinks sharedLink[]
+  filename    String
+  user        User?        @relation(fields: [userId], references: [id])
 }
 
 model Signature {
-  id            String   @id @default(cuid())
+  id           String   @id @default(cuid())
   // Signature  image
-  signatureUrl  String
+  signatureUrl String
   // Placement  metadata
-  page          Int
-  x             Float
-  y             Float
-  width         Float
-  height        Float
+  page         Int
+  x            Float
+  y            Float
+  width        Float
+  height       Float
   // Relations
-  userId        String?
-  pdfId         String
-  User          User?    @relation(fields: [userId], references: [id])
-  Pdf           File     @relation(fields: [pdfId], references: [id])
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  userId       String?
+  pdfId        String
+  User         User?    @relation(fields: [userId], references: [id])
+  Pdf          File     @relation(fields: [pdfId], references: [id])
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 }
 
 enum AuthProvider {
@@ -61,14 +62,14 @@ enum AuthProvider {
   CREDENTIALS
 }
 
-
 model sharedLink {
-  id          String   @id @default(cuid())
-  link        String   @unique
-  fileId      String
-  sharedbyId  String?
-  user        User?    @relation(fields: [sharedby], references: [id])
-  sharedWith  String[] @default([])
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id         String   @id @default(cuid())
+  link       String   @unique
+  fileId     String
+  file       File     @relation(fields: [fileId], references: [id])
+  sharedbyId String?
+  user       User?    @relation(fields: [sharedbyId], references: [id])
+  sharedWith String[] @default([])
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 }

@@ -1158,11 +1158,13 @@ export namespace Prisma {
   export type UserCountOutputType = {
     files: number
     Signature: number
+    sharedLinks: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     files?: boolean | UserCountOutputTypeCountFilesArgs
     Signature?: boolean | UserCountOutputTypeCountSignatureArgs
+    sharedLinks?: boolean | UserCountOutputTypeCountSharedLinksArgs
   }
 
   // Custom InputTypes
@@ -1190,6 +1192,13 @@ export namespace Prisma {
     where?: SignatureWhereInput
   }
 
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountSharedLinksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: sharedLinkWhereInput
+  }
+
 
   /**
    * Count Type FileCountOutputType
@@ -1197,10 +1206,12 @@ export namespace Prisma {
 
   export type FileCountOutputType = {
     signature: number
+    sharedLinks: number
   }
 
   export type FileCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     signature?: boolean | FileCountOutputTypeCountSignatureArgs
+    sharedLinks?: boolean | FileCountOutputTypeCountSharedLinksArgs
   }
 
   // Custom InputTypes
@@ -1219,6 +1230,13 @@ export namespace Prisma {
    */
   export type FileCountOutputTypeCountSignatureArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: SignatureWhereInput
+  }
+
+  /**
+   * FileCountOutputType without action
+   */
+  export type FileCountOutputTypeCountSharedLinksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: sharedLinkWhereInput
   }
 
 
@@ -1448,6 +1466,7 @@ export namespace Prisma {
     otpvalidity?: boolean
     files?: boolean | User$filesArgs<ExtArgs>
     Signature?: boolean | User$SignatureArgs<ExtArgs>
+    sharedLinks?: boolean | User$sharedLinksArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1500,6 +1519,7 @@ export namespace Prisma {
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     files?: boolean | User$filesArgs<ExtArgs>
     Signature?: boolean | User$SignatureArgs<ExtArgs>
+    sharedLinks?: boolean | User$sharedLinksArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1510,6 +1530,7 @@ export namespace Prisma {
     objects: {
       files: Prisma.$FilePayload<ExtArgs>[]
       Signature: Prisma.$SignaturePayload<ExtArgs>[]
+      sharedLinks: Prisma.$sharedLinkPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -1920,6 +1941,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     files<T extends User$filesArgs<ExtArgs> = {}>(args?: Subset<T, User$filesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     Signature<T extends User$SignatureArgs<ExtArgs> = {}>(args?: Subset<T, User$SignatureArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SignaturePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    sharedLinks<T extends User$sharedLinksArgs<ExtArgs> = {}>(args?: Subset<T, User$sharedLinksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$sharedLinkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2402,6 +2424,30 @@ export namespace Prisma {
   }
 
   /**
+   * User.sharedLinks
+   */
+  export type User$sharedLinksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sharedLink
+     */
+    select?: sharedLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sharedLink
+     */
+    omit?: sharedLinkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sharedLinkInclude<ExtArgs> | null
+    where?: sharedLinkWhereInput
+    orderBy?: sharedLinkOrderByWithRelationInput | sharedLinkOrderByWithRelationInput[]
+    cursor?: sharedLinkWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SharedLinkScalarFieldEnum | SharedLinkScalarFieldEnum[]
+  }
+
+  /**
    * User without action
    */
   export type UserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2601,6 +2647,7 @@ export namespace Prisma {
     updatedAt?: boolean
     filename?: boolean
     signature?: boolean | File$signatureArgs<ExtArgs>
+    sharedLinks?: boolean | File$sharedLinksArgs<ExtArgs>
     user?: boolean | File$userArgs<ExtArgs>
     _count?: boolean | FileCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["file"]>
@@ -2640,6 +2687,7 @@ export namespace Prisma {
   export type FileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fileurl" | "publicid" | "userId" | "createdAt" | "updatedAt" | "filename", ExtArgs["result"]["file"]>
   export type FileInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     signature?: boolean | File$signatureArgs<ExtArgs>
+    sharedLinks?: boolean | File$sharedLinksArgs<ExtArgs>
     user?: boolean | File$userArgs<ExtArgs>
     _count?: boolean | FileCountOutputTypeDefaultArgs<ExtArgs>
   }
@@ -2654,6 +2702,7 @@ export namespace Prisma {
     name: "File"
     objects: {
       signature: Prisma.$SignaturePayload<ExtArgs>[]
+      sharedLinks: Prisma.$sharedLinkPayload<ExtArgs>[]
       user: Prisma.$UserPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -3059,6 +3108,7 @@ export namespace Prisma {
   export interface Prisma__FileClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     signature<T extends File$signatureArgs<ExtArgs> = {}>(args?: Subset<T, File$signatureArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SignaturePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    sharedLinks<T extends File$sharedLinksArgs<ExtArgs> = {}>(args?: Subset<T, File$sharedLinksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$sharedLinkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     user<T extends File$userArgs<ExtArgs> = {}>(args?: Subset<T, File$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -3518,6 +3568,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: SignatureScalarFieldEnum | SignatureScalarFieldEnum[]
+  }
+
+  /**
+   * File.sharedLinks
+   */
+  export type File$sharedLinksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sharedLink
+     */
+    select?: sharedLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sharedLink
+     */
+    omit?: sharedLinkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sharedLinkInclude<ExtArgs> | null
+    where?: sharedLinkWhereInput
+    orderBy?: sharedLinkOrderByWithRelationInput | sharedLinkOrderByWithRelationInput[]
+    cursor?: sharedLinkWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SharedLinkScalarFieldEnum | SharedLinkScalarFieldEnum[]
   }
 
   /**
@@ -4790,7 +4864,7 @@ export namespace Prisma {
     id: string | null
     link: string | null
     fileId: string | null
-    sharedby: string | null
+    sharedbyId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -4799,7 +4873,7 @@ export namespace Prisma {
     id: string | null
     link: string | null
     fileId: string | null
-    sharedby: string | null
+    sharedbyId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -4808,7 +4882,7 @@ export namespace Prisma {
     id: number
     link: number
     fileId: number
-    sharedby: number
+    sharedbyId: number
     sharedWith: number
     createdAt: number
     updatedAt: number
@@ -4820,7 +4894,7 @@ export namespace Prisma {
     id?: true
     link?: true
     fileId?: true
-    sharedby?: true
+    sharedbyId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -4829,7 +4903,7 @@ export namespace Prisma {
     id?: true
     link?: true
     fileId?: true
-    sharedby?: true
+    sharedbyId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -4838,7 +4912,7 @@ export namespace Prisma {
     id?: true
     link?: true
     fileId?: true
-    sharedby?: true
+    sharedbyId?: true
     sharedWith?: true
     createdAt?: true
     updatedAt?: true
@@ -4921,7 +4995,7 @@ export namespace Prisma {
     id: string
     link: string
     fileId: string
-    sharedby: string
+    sharedbyId: string | null
     sharedWith: string[]
     createdAt: Date
     updatedAt: Date
@@ -4948,52 +5022,73 @@ export namespace Prisma {
     id?: boolean
     link?: boolean
     fileId?: boolean
-    sharedby?: boolean
+    sharedbyId?: boolean
     sharedWith?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    file?: boolean | FileDefaultArgs<ExtArgs>
+    user?: boolean | sharedLink$userArgs<ExtArgs>
   }, ExtArgs["result"]["sharedLink"]>
 
   export type sharedLinkSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     link?: boolean
     fileId?: boolean
-    sharedby?: boolean
+    sharedbyId?: boolean
     sharedWith?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    file?: boolean | FileDefaultArgs<ExtArgs>
+    user?: boolean | sharedLink$userArgs<ExtArgs>
   }, ExtArgs["result"]["sharedLink"]>
 
   export type sharedLinkSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     link?: boolean
     fileId?: boolean
-    sharedby?: boolean
+    sharedbyId?: boolean
     sharedWith?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    file?: boolean | FileDefaultArgs<ExtArgs>
+    user?: boolean | sharedLink$userArgs<ExtArgs>
   }, ExtArgs["result"]["sharedLink"]>
 
   export type sharedLinkSelectScalar = {
     id?: boolean
     link?: boolean
     fileId?: boolean
-    sharedby?: boolean
+    sharedbyId?: boolean
     sharedWith?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type sharedLinkOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "link" | "fileId" | "sharedby" | "sharedWith" | "createdAt" | "updatedAt", ExtArgs["result"]["sharedLink"]>
+  export type sharedLinkOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "link" | "fileId" | "sharedbyId" | "sharedWith" | "createdAt" | "updatedAt", ExtArgs["result"]["sharedLink"]>
+  export type sharedLinkInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    file?: boolean | FileDefaultArgs<ExtArgs>
+    user?: boolean | sharedLink$userArgs<ExtArgs>
+  }
+  export type sharedLinkIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    file?: boolean | FileDefaultArgs<ExtArgs>
+    user?: boolean | sharedLink$userArgs<ExtArgs>
+  }
+  export type sharedLinkIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    file?: boolean | FileDefaultArgs<ExtArgs>
+    user?: boolean | sharedLink$userArgs<ExtArgs>
+  }
 
   export type $sharedLinkPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "sharedLink"
-    objects: {}
+    objects: {
+      file: Prisma.$FilePayload<ExtArgs>
+      user: Prisma.$UserPayload<ExtArgs> | null
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       link: string
       fileId: string
-      sharedby: string
+      sharedbyId: string | null
       sharedWith: string[]
       createdAt: Date
       updatedAt: Date
@@ -5391,6 +5486,8 @@ export namespace Prisma {
    */
   export interface Prisma__sharedLinkClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    file<T extends FileDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FileDefaultArgs<ExtArgs>>): Prisma__FileClient<$Result.GetResult<Prisma.$FilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    user<T extends sharedLink$userArgs<ExtArgs> = {}>(args?: Subset<T, sharedLink$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5423,7 +5520,7 @@ export namespace Prisma {
     readonly id: FieldRef<"sharedLink", 'String'>
     readonly link: FieldRef<"sharedLink", 'String'>
     readonly fileId: FieldRef<"sharedLink", 'String'>
-    readonly sharedby: FieldRef<"sharedLink", 'String'>
+    readonly sharedbyId: FieldRef<"sharedLink", 'String'>
     readonly sharedWith: FieldRef<"sharedLink", 'String[]'>
     readonly createdAt: FieldRef<"sharedLink", 'DateTime'>
     readonly updatedAt: FieldRef<"sharedLink", 'DateTime'>
@@ -5444,6 +5541,10 @@ export namespace Prisma {
      */
     omit?: sharedLinkOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sharedLinkInclude<ExtArgs> | null
+    /**
      * Filter, which sharedLink to fetch.
      */
     where: sharedLinkWhereUniqueInput
@@ -5462,6 +5563,10 @@ export namespace Prisma {
      */
     omit?: sharedLinkOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sharedLinkInclude<ExtArgs> | null
+    /**
      * Filter, which sharedLink to fetch.
      */
     where: sharedLinkWhereUniqueInput
@@ -5479,6 +5584,10 @@ export namespace Prisma {
      * Omit specific fields from the sharedLink
      */
     omit?: sharedLinkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sharedLinkInclude<ExtArgs> | null
     /**
      * Filter, which sharedLink to fetch.
      */
@@ -5528,6 +5637,10 @@ export namespace Prisma {
      */
     omit?: sharedLinkOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sharedLinkInclude<ExtArgs> | null
+    /**
      * Filter, which sharedLink to fetch.
      */
     where?: sharedLinkWhereInput
@@ -5575,6 +5688,10 @@ export namespace Prisma {
      * Omit specific fields from the sharedLink
      */
     omit?: sharedLinkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sharedLinkInclude<ExtArgs> | null
     /**
      * Filter, which sharedLinks to fetch.
      */
@@ -5624,6 +5741,10 @@ export namespace Prisma {
      */
     omit?: sharedLinkOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sharedLinkInclude<ExtArgs> | null
+    /**
      * The data needed to create a sharedLink.
      */
     data: XOR<sharedLinkCreateInput, sharedLinkUncheckedCreateInput>
@@ -5657,6 +5778,10 @@ export namespace Prisma {
      */
     data: sharedLinkCreateManyInput | sharedLinkCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sharedLinkIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -5671,6 +5796,10 @@ export namespace Prisma {
      * Omit specific fields from the sharedLink
      */
     omit?: sharedLinkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sharedLinkInclude<ExtArgs> | null
     /**
      * The data needed to update a sharedLink.
      */
@@ -5723,6 +5852,10 @@ export namespace Prisma {
      * Limit how many sharedLinks to update.
      */
     limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sharedLinkIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -5737,6 +5870,10 @@ export namespace Prisma {
      * Omit specific fields from the sharedLink
      */
     omit?: sharedLinkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sharedLinkInclude<ExtArgs> | null
     /**
      * The filter to search for the sharedLink to update in case it exists.
      */
@@ -5764,6 +5901,10 @@ export namespace Prisma {
      */
     omit?: sharedLinkOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sharedLinkInclude<ExtArgs> | null
+    /**
      * Filter which sharedLink to delete.
      */
     where: sharedLinkWhereUniqueInput
@@ -5784,6 +5925,25 @@ export namespace Prisma {
   }
 
   /**
+   * sharedLink.user
+   */
+  export type sharedLink$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+  }
+
+  /**
    * sharedLink without action
    */
   export type sharedLinkDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5795,6 +5955,10 @@ export namespace Prisma {
      * Omit specific fields from the sharedLink
      */
     omit?: sharedLinkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sharedLinkInclude<ExtArgs> | null
   }
 
 
@@ -5864,7 +6028,7 @@ export namespace Prisma {
     id: 'id',
     link: 'link',
     fileId: 'fileId',
-    sharedby: 'sharedby',
+    sharedbyId: 'sharedbyId',
     sharedWith: 'sharedWith',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
@@ -5993,6 +6157,7 @@ export namespace Prisma {
     otpvalidity?: DateTimeNullableFilter<"User"> | Date | string | null
     files?: FileListRelationFilter
     Signature?: SignatureListRelationFilter
+    sharedLinks?: SharedLinkListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -6010,6 +6175,7 @@ export namespace Prisma {
     otpvalidity?: SortOrderInput | SortOrder
     files?: FileOrderByRelationAggregateInput
     Signature?: SignatureOrderByRelationAggregateInput
+    sharedLinks?: sharedLinkOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -6030,6 +6196,7 @@ export namespace Prisma {
     otpvalidity?: DateTimeNullableFilter<"User"> | Date | string | null
     files?: FileListRelationFilter
     Signature?: SignatureListRelationFilter
+    sharedLinks?: SharedLinkListRelationFilter
   }, "id" | "email" | "username">
 
   export type UserOrderByWithAggregationInput = {
@@ -6080,6 +6247,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"File"> | Date | string
     filename?: StringFilter<"File"> | string
     signature?: SignatureListRelationFilter
+    sharedLinks?: SharedLinkListRelationFilter
     user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }
 
@@ -6092,6 +6260,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     filename?: SortOrder
     signature?: SignatureOrderByRelationAggregateInput
+    sharedLinks?: sharedLinkOrderByRelationAggregateInput
     user?: UserOrderByWithRelationInput
   }
 
@@ -6107,6 +6276,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"File"> | Date | string
     filename?: StringFilter<"File"> | string
     signature?: SignatureListRelationFilter
+    sharedLinks?: SharedLinkListRelationFilter
     user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }, "id">
 
@@ -6233,20 +6403,24 @@ export namespace Prisma {
     id?: StringFilter<"sharedLink"> | string
     link?: StringFilter<"sharedLink"> | string
     fileId?: StringFilter<"sharedLink"> | string
-    sharedby?: StringFilter<"sharedLink"> | string
+    sharedbyId?: StringNullableFilter<"sharedLink"> | string | null
     sharedWith?: StringNullableListFilter<"sharedLink">
     createdAt?: DateTimeFilter<"sharedLink"> | Date | string
     updatedAt?: DateTimeFilter<"sharedLink"> | Date | string
+    file?: XOR<FileScalarRelationFilter, FileWhereInput>
+    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }
 
   export type sharedLinkOrderByWithRelationInput = {
     id?: SortOrder
     link?: SortOrder
     fileId?: SortOrder
-    sharedby?: SortOrder
+    sharedbyId?: SortOrderInput | SortOrder
     sharedWith?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    file?: FileOrderByWithRelationInput
+    user?: UserOrderByWithRelationInput
   }
 
   export type sharedLinkWhereUniqueInput = Prisma.AtLeast<{
@@ -6256,17 +6430,19 @@ export namespace Prisma {
     OR?: sharedLinkWhereInput[]
     NOT?: sharedLinkWhereInput | sharedLinkWhereInput[]
     fileId?: StringFilter<"sharedLink"> | string
-    sharedby?: StringFilter<"sharedLink"> | string
+    sharedbyId?: StringNullableFilter<"sharedLink"> | string | null
     sharedWith?: StringNullableListFilter<"sharedLink">
     createdAt?: DateTimeFilter<"sharedLink"> | Date | string
     updatedAt?: DateTimeFilter<"sharedLink"> | Date | string
+    file?: XOR<FileScalarRelationFilter, FileWhereInput>
+    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }, "id" | "link">
 
   export type sharedLinkOrderByWithAggregationInput = {
     id?: SortOrder
     link?: SortOrder
     fileId?: SortOrder
-    sharedby?: SortOrder
+    sharedbyId?: SortOrderInput | SortOrder
     sharedWith?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -6282,7 +6458,7 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"sharedLink"> | string
     link?: StringWithAggregatesFilter<"sharedLink"> | string
     fileId?: StringWithAggregatesFilter<"sharedLink"> | string
-    sharedby?: StringWithAggregatesFilter<"sharedLink"> | string
+    sharedbyId?: StringNullableWithAggregatesFilter<"sharedLink"> | string | null
     sharedWith?: StringNullableListFilter<"sharedLink">
     createdAt?: DateTimeWithAggregatesFilter<"sharedLink"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"sharedLink"> | Date | string
@@ -6303,6 +6479,7 @@ export namespace Prisma {
     otpvalidity?: Date | string | null
     files?: FileCreateNestedManyWithoutUserInput
     Signature?: SignatureCreateNestedManyWithoutUserInput
+    sharedLinks?: sharedLinkCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -6320,6 +6497,7 @@ export namespace Prisma {
     otpvalidity?: Date | string | null
     files?: FileUncheckedCreateNestedManyWithoutUserInput
     Signature?: SignatureUncheckedCreateNestedManyWithoutUserInput
+    sharedLinks?: sharedLinkUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -6337,6 +6515,7 @@ export namespace Prisma {
     otpvalidity?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     files?: FileUpdateManyWithoutUserNestedInput
     Signature?: SignatureUpdateManyWithoutUserNestedInput
+    sharedLinks?: sharedLinkUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -6354,6 +6533,7 @@ export namespace Prisma {
     otpvalidity?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     files?: FileUncheckedUpdateManyWithoutUserNestedInput
     Signature?: SignatureUncheckedUpdateManyWithoutUserNestedInput
+    sharedLinks?: sharedLinkUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -6409,6 +6589,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     filename: string
     signature?: SignatureCreateNestedManyWithoutPdfInput
+    sharedLinks?: sharedLinkCreateNestedManyWithoutFileInput
     user?: UserCreateNestedOneWithoutFilesInput
   }
 
@@ -6421,6 +6602,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     filename: string
     signature?: SignatureUncheckedCreateNestedManyWithoutPdfInput
+    sharedLinks?: sharedLinkUncheckedCreateNestedManyWithoutFileInput
   }
 
   export type FileUpdateInput = {
@@ -6431,6 +6613,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     filename?: StringFieldUpdateOperationsInput | string
     signature?: SignatureUpdateManyWithoutPdfNestedInput
+    sharedLinks?: sharedLinkUpdateManyWithoutFileNestedInput
     user?: UserUpdateOneWithoutFilesNestedInput
   }
 
@@ -6443,6 +6626,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     filename?: StringFieldUpdateOperationsInput | string
     signature?: SignatureUncheckedUpdateManyWithoutPdfNestedInput
+    sharedLinks?: sharedLinkUncheckedUpdateManyWithoutFileNestedInput
   }
 
   export type FileCreateManyInput = {
@@ -6573,18 +6757,18 @@ export namespace Prisma {
   export type sharedLinkCreateInput = {
     id?: string
     link: string
-    fileId: string
-    sharedby: string
     sharedWith?: sharedLinkCreatesharedWithInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
+    file: FileCreateNestedOneWithoutSharedLinksInput
+    user?: UserCreateNestedOneWithoutSharedLinksInput
   }
 
   export type sharedLinkUncheckedCreateInput = {
     id?: string
     link: string
     fileId: string
-    sharedby: string
+    sharedbyId?: string | null
     sharedWith?: sharedLinkCreatesharedWithInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -6593,18 +6777,18 @@ export namespace Prisma {
   export type sharedLinkUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     link?: StringFieldUpdateOperationsInput | string
-    fileId?: StringFieldUpdateOperationsInput | string
-    sharedby?: StringFieldUpdateOperationsInput | string
     sharedWith?: sharedLinkUpdatesharedWithInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    file?: FileUpdateOneRequiredWithoutSharedLinksNestedInput
+    user?: UserUpdateOneWithoutSharedLinksNestedInput
   }
 
   export type sharedLinkUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     link?: StringFieldUpdateOperationsInput | string
     fileId?: StringFieldUpdateOperationsInput | string
-    sharedby?: StringFieldUpdateOperationsInput | string
+    sharedbyId?: NullableStringFieldUpdateOperationsInput | string | null
     sharedWith?: sharedLinkUpdatesharedWithInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6614,7 +6798,7 @@ export namespace Prisma {
     id?: string
     link: string
     fileId: string
-    sharedby: string
+    sharedbyId?: string | null
     sharedWith?: sharedLinkCreatesharedWithInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -6623,8 +6807,6 @@ export namespace Prisma {
   export type sharedLinkUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     link?: StringFieldUpdateOperationsInput | string
-    fileId?: StringFieldUpdateOperationsInput | string
-    sharedby?: StringFieldUpdateOperationsInput | string
     sharedWith?: sharedLinkUpdatesharedWithInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6634,7 +6816,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     link?: StringFieldUpdateOperationsInput | string
     fileId?: StringFieldUpdateOperationsInput | string
-    sharedby?: StringFieldUpdateOperationsInput | string
+    sharedbyId?: NullableStringFieldUpdateOperationsInput | string | null
     sharedWith?: sharedLinkUpdatesharedWithInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6711,6 +6893,12 @@ export namespace Prisma {
     none?: SignatureWhereInput
   }
 
+  export type SharedLinkListRelationFilter = {
+    every?: sharedLinkWhereInput
+    some?: sharedLinkWhereInput
+    none?: sharedLinkWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -6721,6 +6909,10 @@ export namespace Prisma {
   }
 
   export type SignatureOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type sharedLinkOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -7007,7 +7199,7 @@ export namespace Prisma {
     id?: SortOrder
     link?: SortOrder
     fileId?: SortOrder
-    sharedby?: SortOrder
+    sharedbyId?: SortOrder
     sharedWith?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -7017,7 +7209,7 @@ export namespace Prisma {
     id?: SortOrder
     link?: SortOrder
     fileId?: SortOrder
-    sharedby?: SortOrder
+    sharedbyId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -7026,7 +7218,7 @@ export namespace Prisma {
     id?: SortOrder
     link?: SortOrder
     fileId?: SortOrder
-    sharedby?: SortOrder
+    sharedbyId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -7045,6 +7237,13 @@ export namespace Prisma {
     connect?: SignatureWhereUniqueInput | SignatureWhereUniqueInput[]
   }
 
+  export type sharedLinkCreateNestedManyWithoutUserInput = {
+    create?: XOR<sharedLinkCreateWithoutUserInput, sharedLinkUncheckedCreateWithoutUserInput> | sharedLinkCreateWithoutUserInput[] | sharedLinkUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: sharedLinkCreateOrConnectWithoutUserInput | sharedLinkCreateOrConnectWithoutUserInput[]
+    createMany?: sharedLinkCreateManyUserInputEnvelope
+    connect?: sharedLinkWhereUniqueInput | sharedLinkWhereUniqueInput[]
+  }
+
   export type FileUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<FileCreateWithoutUserInput, FileUncheckedCreateWithoutUserInput> | FileCreateWithoutUserInput[] | FileUncheckedCreateWithoutUserInput[]
     connectOrCreate?: FileCreateOrConnectWithoutUserInput | FileCreateOrConnectWithoutUserInput[]
@@ -7057,6 +7256,13 @@ export namespace Prisma {
     connectOrCreate?: SignatureCreateOrConnectWithoutUserInput | SignatureCreateOrConnectWithoutUserInput[]
     createMany?: SignatureCreateManyUserInputEnvelope
     connect?: SignatureWhereUniqueInput | SignatureWhereUniqueInput[]
+  }
+
+  export type sharedLinkUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<sharedLinkCreateWithoutUserInput, sharedLinkUncheckedCreateWithoutUserInput> | sharedLinkCreateWithoutUserInput[] | sharedLinkUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: sharedLinkCreateOrConnectWithoutUserInput | sharedLinkCreateOrConnectWithoutUserInput[]
+    createMany?: sharedLinkCreateManyUserInputEnvelope
+    connect?: sharedLinkWhereUniqueInput | sharedLinkWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -7107,6 +7313,20 @@ export namespace Prisma {
     deleteMany?: SignatureScalarWhereInput | SignatureScalarWhereInput[]
   }
 
+  export type sharedLinkUpdateManyWithoutUserNestedInput = {
+    create?: XOR<sharedLinkCreateWithoutUserInput, sharedLinkUncheckedCreateWithoutUserInput> | sharedLinkCreateWithoutUserInput[] | sharedLinkUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: sharedLinkCreateOrConnectWithoutUserInput | sharedLinkCreateOrConnectWithoutUserInput[]
+    upsert?: sharedLinkUpsertWithWhereUniqueWithoutUserInput | sharedLinkUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: sharedLinkCreateManyUserInputEnvelope
+    set?: sharedLinkWhereUniqueInput | sharedLinkWhereUniqueInput[]
+    disconnect?: sharedLinkWhereUniqueInput | sharedLinkWhereUniqueInput[]
+    delete?: sharedLinkWhereUniqueInput | sharedLinkWhereUniqueInput[]
+    connect?: sharedLinkWhereUniqueInput | sharedLinkWhereUniqueInput[]
+    update?: sharedLinkUpdateWithWhereUniqueWithoutUserInput | sharedLinkUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: sharedLinkUpdateManyWithWhereWithoutUserInput | sharedLinkUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: sharedLinkScalarWhereInput | sharedLinkScalarWhereInput[]
+  }
+
   export type FileUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<FileCreateWithoutUserInput, FileUncheckedCreateWithoutUserInput> | FileCreateWithoutUserInput[] | FileUncheckedCreateWithoutUserInput[]
     connectOrCreate?: FileCreateOrConnectWithoutUserInput | FileCreateOrConnectWithoutUserInput[]
@@ -7135,11 +7355,32 @@ export namespace Prisma {
     deleteMany?: SignatureScalarWhereInput | SignatureScalarWhereInput[]
   }
 
+  export type sharedLinkUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<sharedLinkCreateWithoutUserInput, sharedLinkUncheckedCreateWithoutUserInput> | sharedLinkCreateWithoutUserInput[] | sharedLinkUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: sharedLinkCreateOrConnectWithoutUserInput | sharedLinkCreateOrConnectWithoutUserInput[]
+    upsert?: sharedLinkUpsertWithWhereUniqueWithoutUserInput | sharedLinkUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: sharedLinkCreateManyUserInputEnvelope
+    set?: sharedLinkWhereUniqueInput | sharedLinkWhereUniqueInput[]
+    disconnect?: sharedLinkWhereUniqueInput | sharedLinkWhereUniqueInput[]
+    delete?: sharedLinkWhereUniqueInput | sharedLinkWhereUniqueInput[]
+    connect?: sharedLinkWhereUniqueInput | sharedLinkWhereUniqueInput[]
+    update?: sharedLinkUpdateWithWhereUniqueWithoutUserInput | sharedLinkUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: sharedLinkUpdateManyWithWhereWithoutUserInput | sharedLinkUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: sharedLinkScalarWhereInput | sharedLinkScalarWhereInput[]
+  }
+
   export type SignatureCreateNestedManyWithoutPdfInput = {
     create?: XOR<SignatureCreateWithoutPdfInput, SignatureUncheckedCreateWithoutPdfInput> | SignatureCreateWithoutPdfInput[] | SignatureUncheckedCreateWithoutPdfInput[]
     connectOrCreate?: SignatureCreateOrConnectWithoutPdfInput | SignatureCreateOrConnectWithoutPdfInput[]
     createMany?: SignatureCreateManyPdfInputEnvelope
     connect?: SignatureWhereUniqueInput | SignatureWhereUniqueInput[]
+  }
+
+  export type sharedLinkCreateNestedManyWithoutFileInput = {
+    create?: XOR<sharedLinkCreateWithoutFileInput, sharedLinkUncheckedCreateWithoutFileInput> | sharedLinkCreateWithoutFileInput[] | sharedLinkUncheckedCreateWithoutFileInput[]
+    connectOrCreate?: sharedLinkCreateOrConnectWithoutFileInput | sharedLinkCreateOrConnectWithoutFileInput[]
+    createMany?: sharedLinkCreateManyFileInputEnvelope
+    connect?: sharedLinkWhereUniqueInput | sharedLinkWhereUniqueInput[]
   }
 
   export type UserCreateNestedOneWithoutFilesInput = {
@@ -7155,6 +7396,13 @@ export namespace Prisma {
     connect?: SignatureWhereUniqueInput | SignatureWhereUniqueInput[]
   }
 
+  export type sharedLinkUncheckedCreateNestedManyWithoutFileInput = {
+    create?: XOR<sharedLinkCreateWithoutFileInput, sharedLinkUncheckedCreateWithoutFileInput> | sharedLinkCreateWithoutFileInput[] | sharedLinkUncheckedCreateWithoutFileInput[]
+    connectOrCreate?: sharedLinkCreateOrConnectWithoutFileInput | sharedLinkCreateOrConnectWithoutFileInput[]
+    createMany?: sharedLinkCreateManyFileInputEnvelope
+    connect?: sharedLinkWhereUniqueInput | sharedLinkWhereUniqueInput[]
+  }
+
   export type SignatureUpdateManyWithoutPdfNestedInput = {
     create?: XOR<SignatureCreateWithoutPdfInput, SignatureUncheckedCreateWithoutPdfInput> | SignatureCreateWithoutPdfInput[] | SignatureUncheckedCreateWithoutPdfInput[]
     connectOrCreate?: SignatureCreateOrConnectWithoutPdfInput | SignatureCreateOrConnectWithoutPdfInput[]
@@ -7167,6 +7415,20 @@ export namespace Prisma {
     update?: SignatureUpdateWithWhereUniqueWithoutPdfInput | SignatureUpdateWithWhereUniqueWithoutPdfInput[]
     updateMany?: SignatureUpdateManyWithWhereWithoutPdfInput | SignatureUpdateManyWithWhereWithoutPdfInput[]
     deleteMany?: SignatureScalarWhereInput | SignatureScalarWhereInput[]
+  }
+
+  export type sharedLinkUpdateManyWithoutFileNestedInput = {
+    create?: XOR<sharedLinkCreateWithoutFileInput, sharedLinkUncheckedCreateWithoutFileInput> | sharedLinkCreateWithoutFileInput[] | sharedLinkUncheckedCreateWithoutFileInput[]
+    connectOrCreate?: sharedLinkCreateOrConnectWithoutFileInput | sharedLinkCreateOrConnectWithoutFileInput[]
+    upsert?: sharedLinkUpsertWithWhereUniqueWithoutFileInput | sharedLinkUpsertWithWhereUniqueWithoutFileInput[]
+    createMany?: sharedLinkCreateManyFileInputEnvelope
+    set?: sharedLinkWhereUniqueInput | sharedLinkWhereUniqueInput[]
+    disconnect?: sharedLinkWhereUniqueInput | sharedLinkWhereUniqueInput[]
+    delete?: sharedLinkWhereUniqueInput | sharedLinkWhereUniqueInput[]
+    connect?: sharedLinkWhereUniqueInput | sharedLinkWhereUniqueInput[]
+    update?: sharedLinkUpdateWithWhereUniqueWithoutFileInput | sharedLinkUpdateWithWhereUniqueWithoutFileInput[]
+    updateMany?: sharedLinkUpdateManyWithWhereWithoutFileInput | sharedLinkUpdateManyWithWhereWithoutFileInput[]
+    deleteMany?: sharedLinkScalarWhereInput | sharedLinkScalarWhereInput[]
   }
 
   export type UserUpdateOneWithoutFilesNestedInput = {
@@ -7191,6 +7453,20 @@ export namespace Prisma {
     update?: SignatureUpdateWithWhereUniqueWithoutPdfInput | SignatureUpdateWithWhereUniqueWithoutPdfInput[]
     updateMany?: SignatureUpdateManyWithWhereWithoutPdfInput | SignatureUpdateManyWithWhereWithoutPdfInput[]
     deleteMany?: SignatureScalarWhereInput | SignatureScalarWhereInput[]
+  }
+
+  export type sharedLinkUncheckedUpdateManyWithoutFileNestedInput = {
+    create?: XOR<sharedLinkCreateWithoutFileInput, sharedLinkUncheckedCreateWithoutFileInput> | sharedLinkCreateWithoutFileInput[] | sharedLinkUncheckedCreateWithoutFileInput[]
+    connectOrCreate?: sharedLinkCreateOrConnectWithoutFileInput | sharedLinkCreateOrConnectWithoutFileInput[]
+    upsert?: sharedLinkUpsertWithWhereUniqueWithoutFileInput | sharedLinkUpsertWithWhereUniqueWithoutFileInput[]
+    createMany?: sharedLinkCreateManyFileInputEnvelope
+    set?: sharedLinkWhereUniqueInput | sharedLinkWhereUniqueInput[]
+    disconnect?: sharedLinkWhereUniqueInput | sharedLinkWhereUniqueInput[]
+    delete?: sharedLinkWhereUniqueInput | sharedLinkWhereUniqueInput[]
+    connect?: sharedLinkWhereUniqueInput | sharedLinkWhereUniqueInput[]
+    update?: sharedLinkUpdateWithWhereUniqueWithoutFileInput | sharedLinkUpdateWithWhereUniqueWithoutFileInput[]
+    updateMany?: sharedLinkUpdateManyWithWhereWithoutFileInput | sharedLinkUpdateManyWithWhereWithoutFileInput[]
+    deleteMany?: sharedLinkScalarWhereInput | sharedLinkScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutSignatureInput = {
@@ -7243,9 +7519,39 @@ export namespace Prisma {
     set: string[]
   }
 
+  export type FileCreateNestedOneWithoutSharedLinksInput = {
+    create?: XOR<FileCreateWithoutSharedLinksInput, FileUncheckedCreateWithoutSharedLinksInput>
+    connectOrCreate?: FileCreateOrConnectWithoutSharedLinksInput
+    connect?: FileWhereUniqueInput
+  }
+
+  export type UserCreateNestedOneWithoutSharedLinksInput = {
+    create?: XOR<UserCreateWithoutSharedLinksInput, UserUncheckedCreateWithoutSharedLinksInput>
+    connectOrCreate?: UserCreateOrConnectWithoutSharedLinksInput
+    connect?: UserWhereUniqueInput
+  }
+
   export type sharedLinkUpdatesharedWithInput = {
     set?: string[]
     push?: string | string[]
+  }
+
+  export type FileUpdateOneRequiredWithoutSharedLinksNestedInput = {
+    create?: XOR<FileCreateWithoutSharedLinksInput, FileUncheckedCreateWithoutSharedLinksInput>
+    connectOrCreate?: FileCreateOrConnectWithoutSharedLinksInput
+    upsert?: FileUpsertWithoutSharedLinksInput
+    connect?: FileWhereUniqueInput
+    update?: XOR<XOR<FileUpdateToOneWithWhereWithoutSharedLinksInput, FileUpdateWithoutSharedLinksInput>, FileUncheckedUpdateWithoutSharedLinksInput>
+  }
+
+  export type UserUpdateOneWithoutSharedLinksNestedInput = {
+    create?: XOR<UserCreateWithoutSharedLinksInput, UserUncheckedCreateWithoutSharedLinksInput>
+    connectOrCreate?: UserCreateOrConnectWithoutSharedLinksInput
+    upsert?: UserUpsertWithoutSharedLinksInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutSharedLinksInput, UserUpdateWithoutSharedLinksInput>, UserUncheckedUpdateWithoutSharedLinksInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -7450,6 +7756,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     filename: string
     signature?: SignatureCreateNestedManyWithoutPdfInput
+    sharedLinks?: sharedLinkCreateNestedManyWithoutFileInput
   }
 
   export type FileUncheckedCreateWithoutUserInput = {
@@ -7460,6 +7767,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     filename: string
     signature?: SignatureUncheckedCreateNestedManyWithoutPdfInput
+    sharedLinks?: sharedLinkUncheckedCreateNestedManyWithoutFileInput
   }
 
   export type FileCreateOrConnectWithoutUserInput = {
@@ -7505,6 +7813,34 @@ export namespace Prisma {
 
   export type SignatureCreateManyUserInputEnvelope = {
     data: SignatureCreateManyUserInput | SignatureCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type sharedLinkCreateWithoutUserInput = {
+    id?: string
+    link: string
+    sharedWith?: sharedLinkCreatesharedWithInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    file: FileCreateNestedOneWithoutSharedLinksInput
+  }
+
+  export type sharedLinkUncheckedCreateWithoutUserInput = {
+    id?: string
+    link: string
+    fileId: string
+    sharedWith?: sharedLinkCreatesharedWithInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type sharedLinkCreateOrConnectWithoutUserInput = {
+    where: sharedLinkWhereUniqueInput
+    create: XOR<sharedLinkCreateWithoutUserInput, sharedLinkUncheckedCreateWithoutUserInput>
+  }
+
+  export type sharedLinkCreateManyUserInputEnvelope = {
+    data: sharedLinkCreateManyUserInput | sharedLinkCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -7570,6 +7906,35 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Signature"> | Date | string
   }
 
+  export type sharedLinkUpsertWithWhereUniqueWithoutUserInput = {
+    where: sharedLinkWhereUniqueInput
+    update: XOR<sharedLinkUpdateWithoutUserInput, sharedLinkUncheckedUpdateWithoutUserInput>
+    create: XOR<sharedLinkCreateWithoutUserInput, sharedLinkUncheckedCreateWithoutUserInput>
+  }
+
+  export type sharedLinkUpdateWithWhereUniqueWithoutUserInput = {
+    where: sharedLinkWhereUniqueInput
+    data: XOR<sharedLinkUpdateWithoutUserInput, sharedLinkUncheckedUpdateWithoutUserInput>
+  }
+
+  export type sharedLinkUpdateManyWithWhereWithoutUserInput = {
+    where: sharedLinkScalarWhereInput
+    data: XOR<sharedLinkUpdateManyMutationInput, sharedLinkUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type sharedLinkScalarWhereInput = {
+    AND?: sharedLinkScalarWhereInput | sharedLinkScalarWhereInput[]
+    OR?: sharedLinkScalarWhereInput[]
+    NOT?: sharedLinkScalarWhereInput | sharedLinkScalarWhereInput[]
+    id?: StringFilter<"sharedLink"> | string
+    link?: StringFilter<"sharedLink"> | string
+    fileId?: StringFilter<"sharedLink"> | string
+    sharedbyId?: StringNullableFilter<"sharedLink"> | string | null
+    sharedWith?: StringNullableListFilter<"sharedLink">
+    createdAt?: DateTimeFilter<"sharedLink"> | Date | string
+    updatedAt?: DateTimeFilter<"sharedLink"> | Date | string
+  }
+
   export type SignatureCreateWithoutPdfInput = {
     id?: string
     signatureUrl: string
@@ -7606,6 +7971,34 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type sharedLinkCreateWithoutFileInput = {
+    id?: string
+    link: string
+    sharedWith?: sharedLinkCreatesharedWithInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user?: UserCreateNestedOneWithoutSharedLinksInput
+  }
+
+  export type sharedLinkUncheckedCreateWithoutFileInput = {
+    id?: string
+    link: string
+    sharedbyId?: string | null
+    sharedWith?: sharedLinkCreatesharedWithInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type sharedLinkCreateOrConnectWithoutFileInput = {
+    where: sharedLinkWhereUniqueInput
+    create: XOR<sharedLinkCreateWithoutFileInput, sharedLinkUncheckedCreateWithoutFileInput>
+  }
+
+  export type sharedLinkCreateManyFileInputEnvelope = {
+    data: sharedLinkCreateManyFileInput | sharedLinkCreateManyFileInput[]
+    skipDuplicates?: boolean
+  }
+
   export type UserCreateWithoutFilesInput = {
     id?: string
     name: string
@@ -7620,6 +8013,7 @@ export namespace Prisma {
     otp?: string | null
     otpvalidity?: Date | string | null
     Signature?: SignatureCreateNestedManyWithoutUserInput
+    sharedLinks?: sharedLinkCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutFilesInput = {
@@ -7636,6 +8030,7 @@ export namespace Prisma {
     otp?: string | null
     otpvalidity?: Date | string | null
     Signature?: SignatureUncheckedCreateNestedManyWithoutUserInput
+    sharedLinks?: sharedLinkUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutFilesInput = {
@@ -7657,6 +8052,22 @@ export namespace Prisma {
   export type SignatureUpdateManyWithWhereWithoutPdfInput = {
     where: SignatureScalarWhereInput
     data: XOR<SignatureUpdateManyMutationInput, SignatureUncheckedUpdateManyWithoutPdfInput>
+  }
+
+  export type sharedLinkUpsertWithWhereUniqueWithoutFileInput = {
+    where: sharedLinkWhereUniqueInput
+    update: XOR<sharedLinkUpdateWithoutFileInput, sharedLinkUncheckedUpdateWithoutFileInput>
+    create: XOR<sharedLinkCreateWithoutFileInput, sharedLinkUncheckedCreateWithoutFileInput>
+  }
+
+  export type sharedLinkUpdateWithWhereUniqueWithoutFileInput = {
+    where: sharedLinkWhereUniqueInput
+    data: XOR<sharedLinkUpdateWithoutFileInput, sharedLinkUncheckedUpdateWithoutFileInput>
+  }
+
+  export type sharedLinkUpdateManyWithWhereWithoutFileInput = {
+    where: sharedLinkScalarWhereInput
+    data: XOR<sharedLinkUpdateManyMutationInput, sharedLinkUncheckedUpdateManyWithoutFileInput>
   }
 
   export type UserUpsertWithoutFilesInput = {
@@ -7684,6 +8095,7 @@ export namespace Prisma {
     otp?: NullableStringFieldUpdateOperationsInput | string | null
     otpvalidity?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     Signature?: SignatureUpdateManyWithoutUserNestedInput
+    sharedLinks?: sharedLinkUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutFilesInput = {
@@ -7700,6 +8112,7 @@ export namespace Prisma {
     otp?: NullableStringFieldUpdateOperationsInput | string | null
     otpvalidity?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     Signature?: SignatureUncheckedUpdateManyWithoutUserNestedInput
+    sharedLinks?: sharedLinkUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutSignatureInput = {
@@ -7716,6 +8129,7 @@ export namespace Prisma {
     otp?: string | null
     otpvalidity?: Date | string | null
     files?: FileCreateNestedManyWithoutUserInput
+    sharedLinks?: sharedLinkCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutSignatureInput = {
@@ -7732,6 +8146,7 @@ export namespace Prisma {
     otp?: string | null
     otpvalidity?: Date | string | null
     files?: FileUncheckedCreateNestedManyWithoutUserInput
+    sharedLinks?: sharedLinkUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutSignatureInput = {
@@ -7746,6 +8161,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     filename: string
+    sharedLinks?: sharedLinkCreateNestedManyWithoutFileInput
     user?: UserCreateNestedOneWithoutFilesInput
   }
 
@@ -7757,6 +8173,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     filename: string
+    sharedLinks?: sharedLinkUncheckedCreateNestedManyWithoutFileInput
   }
 
   export type FileCreateOrConnectWithoutSignatureInput = {
@@ -7789,6 +8206,7 @@ export namespace Prisma {
     otp?: NullableStringFieldUpdateOperationsInput | string | null
     otpvalidity?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     files?: FileUpdateManyWithoutUserNestedInput
+    sharedLinks?: sharedLinkUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSignatureInput = {
@@ -7805,6 +8223,7 @@ export namespace Prisma {
     otp?: NullableStringFieldUpdateOperationsInput | string | null
     otpvalidity?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     files?: FileUncheckedUpdateManyWithoutUserNestedInput
+    sharedLinks?: sharedLinkUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type FileUpsertWithoutSignatureInput = {
@@ -7825,6 +8244,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     filename?: StringFieldUpdateOperationsInput | string
+    sharedLinks?: sharedLinkUpdateManyWithoutFileNestedInput
     user?: UserUpdateOneWithoutFilesNestedInput
   }
 
@@ -7836,6 +8256,151 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     filename?: StringFieldUpdateOperationsInput | string
+    sharedLinks?: sharedLinkUncheckedUpdateManyWithoutFileNestedInput
+  }
+
+  export type FileCreateWithoutSharedLinksInput = {
+    id?: string
+    fileurl: string
+    publicid: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    filename: string
+    signature?: SignatureCreateNestedManyWithoutPdfInput
+    user?: UserCreateNestedOneWithoutFilesInput
+  }
+
+  export type FileUncheckedCreateWithoutSharedLinksInput = {
+    id?: string
+    fileurl: string
+    publicid: string
+    userId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    filename: string
+    signature?: SignatureUncheckedCreateNestedManyWithoutPdfInput
+  }
+
+  export type FileCreateOrConnectWithoutSharedLinksInput = {
+    where: FileWhereUniqueInput
+    create: XOR<FileCreateWithoutSharedLinksInput, FileUncheckedCreateWithoutSharedLinksInput>
+  }
+
+  export type UserCreateWithoutSharedLinksInput = {
+    id?: string
+    name: string
+    email: string
+    createdAt?: Date | string
+    password?: string | null
+    providerId?: string | null
+    refreshToken?: string | null
+    updatedAt?: Date | string
+    username: string
+    provider?: $Enums.AuthProvider
+    otp?: string | null
+    otpvalidity?: Date | string | null
+    files?: FileCreateNestedManyWithoutUserInput
+    Signature?: SignatureCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutSharedLinksInput = {
+    id?: string
+    name: string
+    email: string
+    createdAt?: Date | string
+    password?: string | null
+    providerId?: string | null
+    refreshToken?: string | null
+    updatedAt?: Date | string
+    username: string
+    provider?: $Enums.AuthProvider
+    otp?: string | null
+    otpvalidity?: Date | string | null
+    files?: FileUncheckedCreateNestedManyWithoutUserInput
+    Signature?: SignatureUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutSharedLinksInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutSharedLinksInput, UserUncheckedCreateWithoutSharedLinksInput>
+  }
+
+  export type FileUpsertWithoutSharedLinksInput = {
+    update: XOR<FileUpdateWithoutSharedLinksInput, FileUncheckedUpdateWithoutSharedLinksInput>
+    create: XOR<FileCreateWithoutSharedLinksInput, FileUncheckedCreateWithoutSharedLinksInput>
+    where?: FileWhereInput
+  }
+
+  export type FileUpdateToOneWithWhereWithoutSharedLinksInput = {
+    where?: FileWhereInput
+    data: XOR<FileUpdateWithoutSharedLinksInput, FileUncheckedUpdateWithoutSharedLinksInput>
+  }
+
+  export type FileUpdateWithoutSharedLinksInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fileurl?: StringFieldUpdateOperationsInput | string
+    publicid?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    filename?: StringFieldUpdateOperationsInput | string
+    signature?: SignatureUpdateManyWithoutPdfNestedInput
+    user?: UserUpdateOneWithoutFilesNestedInput
+  }
+
+  export type FileUncheckedUpdateWithoutSharedLinksInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fileurl?: StringFieldUpdateOperationsInput | string
+    publicid?: StringFieldUpdateOperationsInput | string
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    filename?: StringFieldUpdateOperationsInput | string
+    signature?: SignatureUncheckedUpdateManyWithoutPdfNestedInput
+  }
+
+  export type UserUpsertWithoutSharedLinksInput = {
+    update: XOR<UserUpdateWithoutSharedLinksInput, UserUncheckedUpdateWithoutSharedLinksInput>
+    create: XOR<UserCreateWithoutSharedLinksInput, UserUncheckedCreateWithoutSharedLinksInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutSharedLinksInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutSharedLinksInput, UserUncheckedUpdateWithoutSharedLinksInput>
+  }
+
+  export type UserUpdateWithoutSharedLinksInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    providerId?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    username?: StringFieldUpdateOperationsInput | string
+    provider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
+    otp?: NullableStringFieldUpdateOperationsInput | string | null
+    otpvalidity?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    files?: FileUpdateManyWithoutUserNestedInput
+    Signature?: SignatureUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutSharedLinksInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    providerId?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    username?: StringFieldUpdateOperationsInput | string
+    provider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
+    otp?: NullableStringFieldUpdateOperationsInput | string | null
+    otpvalidity?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    files?: FileUncheckedUpdateManyWithoutUserNestedInput
+    Signature?: SignatureUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type FileCreateManyUserInput = {
@@ -7860,6 +8425,15 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
+  export type sharedLinkCreateManyUserInput = {
+    id?: string
+    link: string
+    fileId: string
+    sharedWith?: sharedLinkCreatesharedWithInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
   export type FileUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     fileurl?: StringFieldUpdateOperationsInput | string
@@ -7868,6 +8442,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     filename?: StringFieldUpdateOperationsInput | string
     signature?: SignatureUpdateManyWithoutPdfNestedInput
+    sharedLinks?: sharedLinkUpdateManyWithoutFileNestedInput
   }
 
   export type FileUncheckedUpdateWithoutUserInput = {
@@ -7878,6 +8453,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     filename?: StringFieldUpdateOperationsInput | string
     signature?: SignatureUncheckedUpdateManyWithoutPdfNestedInput
+    sharedLinks?: sharedLinkUncheckedUpdateManyWithoutFileNestedInput
   }
 
   export type FileUncheckedUpdateManyWithoutUserInput = {
@@ -7928,6 +8504,33 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type sharedLinkUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    link?: StringFieldUpdateOperationsInput | string
+    sharedWith?: sharedLinkUpdatesharedWithInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    file?: FileUpdateOneRequiredWithoutSharedLinksNestedInput
+  }
+
+  export type sharedLinkUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    link?: StringFieldUpdateOperationsInput | string
+    fileId?: StringFieldUpdateOperationsInput | string
+    sharedWith?: sharedLinkUpdatesharedWithInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type sharedLinkUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    link?: StringFieldUpdateOperationsInput | string
+    fileId?: StringFieldUpdateOperationsInput | string
+    sharedWith?: sharedLinkUpdatesharedWithInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type SignatureCreateManyPdfInput = {
     id?: string
     signatureUrl: string
@@ -7937,6 +8540,15 @@ export namespace Prisma {
     width: number
     height: number
     userId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type sharedLinkCreateManyFileInput = {
+    id?: string
+    link: string
+    sharedbyId?: string | null
+    sharedWith?: sharedLinkCreatesharedWithInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -7976,6 +8588,33 @@ export namespace Prisma {
     width?: FloatFieldUpdateOperationsInput | number
     height?: FloatFieldUpdateOperationsInput | number
     userId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type sharedLinkUpdateWithoutFileInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    link?: StringFieldUpdateOperationsInput | string
+    sharedWith?: sharedLinkUpdatesharedWithInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneWithoutSharedLinksNestedInput
+  }
+
+  export type sharedLinkUncheckedUpdateWithoutFileInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    link?: StringFieldUpdateOperationsInput | string
+    sharedbyId?: NullableStringFieldUpdateOperationsInput | string | null
+    sharedWith?: sharedLinkUpdatesharedWithInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type sharedLinkUncheckedUpdateManyWithoutFileInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    link?: StringFieldUpdateOperationsInput | string
+    sharedbyId?: NullableStringFieldUpdateOperationsInput | string | null
+    sharedWith?: sharedLinkUpdatesharedWithInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

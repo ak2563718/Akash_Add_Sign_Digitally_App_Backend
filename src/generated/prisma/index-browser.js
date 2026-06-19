@@ -163,7 +163,7 @@ exports.Prisma.SharedLinkScalarFieldEnum = {
   id: 'id',
   link: 'link',
   fileId: 'fileId',
-  sharedby: 'sharedby',
+  sharedbyId: 'sharedbyId',
   sharedWith: 'sharedWith',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
