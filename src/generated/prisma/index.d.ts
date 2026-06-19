@@ -2342,6 +2342,7 @@ export namespace Prisma {
   export type FileMinAggregateOutputType = {
     id: string | null
     fileurl: string | null
+    publicid: string | null
     userId: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -2351,6 +2352,7 @@ export namespace Prisma {
   export type FileMaxAggregateOutputType = {
     id: string | null
     fileurl: string | null
+    publicid: string | null
     userId: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -2360,6 +2362,7 @@ export namespace Prisma {
   export type FileCountAggregateOutputType = {
     id: number
     fileurl: number
+    publicid: number
     userId: number
     createdAt: number
     updatedAt: number
@@ -2371,6 +2374,7 @@ export namespace Prisma {
   export type FileMinAggregateInputType = {
     id?: true
     fileurl?: true
+    publicid?: true
     userId?: true
     createdAt?: true
     updatedAt?: true
@@ -2380,6 +2384,7 @@ export namespace Prisma {
   export type FileMaxAggregateInputType = {
     id?: true
     fileurl?: true
+    publicid?: true
     userId?: true
     createdAt?: true
     updatedAt?: true
@@ -2389,6 +2394,7 @@ export namespace Prisma {
   export type FileCountAggregateInputType = {
     id?: true
     fileurl?: true
+    publicid?: true
     userId?: true
     createdAt?: true
     updatedAt?: true
@@ -2471,6 +2477,7 @@ export namespace Prisma {
   export type FileGroupByOutputType = {
     id: string
     fileurl: string
+    publicid: string
     userId: string | null
     createdAt: Date
     updatedAt: Date
@@ -2497,6 +2504,7 @@ export namespace Prisma {
   export type FileSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     fileurl?: boolean
+    publicid?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -2509,6 +2517,7 @@ export namespace Prisma {
   export type FileSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     fileurl?: boolean
+    publicid?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -2519,6 +2528,7 @@ export namespace Prisma {
   export type FileSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     fileurl?: boolean
+    publicid?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -2529,13 +2539,14 @@ export namespace Prisma {
   export type FileSelectScalar = {
     id?: boolean
     fileurl?: boolean
+    publicid?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     filename?: boolean
   }
 
-  export type FileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fileurl" | "userId" | "createdAt" | "updatedAt" | "filename", ExtArgs["result"]["file"]>
+  export type FileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fileurl" | "publicid" | "userId" | "createdAt" | "updatedAt" | "filename", ExtArgs["result"]["file"]>
   export type FileInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     signature?: boolean | File$signatureArgs<ExtArgs>
     user?: boolean | File$userArgs<ExtArgs>
@@ -2557,6 +2568,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       fileurl: string
+      publicid: string
       userId: string | null
       createdAt: Date
       updatedAt: Date
@@ -2988,6 +3000,7 @@ export namespace Prisma {
   interface FileFieldRefs {
     readonly id: FieldRef<"File", 'String'>
     readonly fileurl: FieldRef<"File", 'String'>
+    readonly publicid: FieldRef<"File", 'String'>
     readonly userId: FieldRef<"File", 'String'>
     readonly createdAt: FieldRef<"File", 'DateTime'>
     readonly updatedAt: FieldRef<"File", 'DateTime'>
@@ -4707,6 +4720,7 @@ export namespace Prisma {
   export const FileScalarFieldEnum: {
     id: 'id',
     fileurl: 'fileurl',
+    publicid: 'publicid',
     userId: 'userId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
@@ -4934,6 +4948,7 @@ export namespace Prisma {
     NOT?: FileWhereInput | FileWhereInput[]
     id?: StringFilter<"File"> | string
     fileurl?: StringFilter<"File"> | string
+    publicid?: StringFilter<"File"> | string
     userId?: StringNullableFilter<"File"> | string | null
     createdAt?: DateTimeFilter<"File"> | Date | string
     updatedAt?: DateTimeFilter<"File"> | Date | string
@@ -4945,6 +4960,7 @@ export namespace Prisma {
   export type FileOrderByWithRelationInput = {
     id?: SortOrder
     fileurl?: SortOrder
+    publicid?: SortOrder
     userId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -4959,6 +4975,7 @@ export namespace Prisma {
     OR?: FileWhereInput[]
     NOT?: FileWhereInput | FileWhereInput[]
     fileurl?: StringFilter<"File"> | string
+    publicid?: StringFilter<"File"> | string
     userId?: StringNullableFilter<"File"> | string | null
     createdAt?: DateTimeFilter<"File"> | Date | string
     updatedAt?: DateTimeFilter<"File"> | Date | string
@@ -4970,6 +4987,7 @@ export namespace Prisma {
   export type FileOrderByWithAggregationInput = {
     id?: SortOrder
     fileurl?: SortOrder
+    publicid?: SortOrder
     userId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -4985,6 +5003,7 @@ export namespace Prisma {
     NOT?: FileScalarWhereWithAggregatesInput | FileScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"File"> | string
     fileurl?: StringWithAggregatesFilter<"File"> | string
+    publicid?: StringWithAggregatesFilter<"File"> | string
     userId?: StringNullableWithAggregatesFilter<"File"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"File"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"File"> | Date | string
@@ -5197,6 +5216,7 @@ export namespace Prisma {
   export type FileCreateInput = {
     id?: string
     fileurl: string
+    publicid: string
     createdAt?: Date | string
     updatedAt?: Date | string
     filename: string
@@ -5207,6 +5227,7 @@ export namespace Prisma {
   export type FileUncheckedCreateInput = {
     id?: string
     fileurl: string
+    publicid: string
     userId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -5217,6 +5238,7 @@ export namespace Prisma {
   export type FileUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     fileurl?: StringFieldUpdateOperationsInput | string
+    publicid?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     filename?: StringFieldUpdateOperationsInput | string
@@ -5227,6 +5249,7 @@ export namespace Prisma {
   export type FileUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     fileurl?: StringFieldUpdateOperationsInput | string
+    publicid?: StringFieldUpdateOperationsInput | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5237,6 +5260,7 @@ export namespace Prisma {
   export type FileCreateManyInput = {
     id?: string
     fileurl: string
+    publicid: string
     userId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -5246,6 +5270,7 @@ export namespace Prisma {
   export type FileUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     fileurl?: StringFieldUpdateOperationsInput | string
+    publicid?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     filename?: StringFieldUpdateOperationsInput | string
@@ -5254,6 +5279,7 @@ export namespace Prisma {
   export type FileUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     fileurl?: StringFieldUpdateOperationsInput | string
+    publicid?: StringFieldUpdateOperationsInput | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5567,6 +5593,7 @@ export namespace Prisma {
   export type FileCountOrderByAggregateInput = {
     id?: SortOrder
     fileurl?: SortOrder
+    publicid?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -5576,6 +5603,7 @@ export namespace Prisma {
   export type FileMaxOrderByAggregateInput = {
     id?: SortOrder
     fileurl?: SortOrder
+    publicid?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -5585,6 +5613,7 @@ export namespace Prisma {
   export type FileMinOrderByAggregateInput = {
     id?: SortOrder
     fileurl?: SortOrder
+    publicid?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -6113,6 +6142,7 @@ export namespace Prisma {
   export type FileCreateWithoutUserInput = {
     id?: string
     fileurl: string
+    publicid: string
     createdAt?: Date | string
     updatedAt?: Date | string
     filename: string
@@ -6122,6 +6152,7 @@ export namespace Prisma {
   export type FileUncheckedCreateWithoutUserInput = {
     id?: string
     fileurl: string
+    publicid: string
     createdAt?: Date | string
     updatedAt?: Date | string
     filename: string
@@ -6196,6 +6227,7 @@ export namespace Prisma {
     NOT?: FileScalarWhereInput | FileScalarWhereInput[]
     id?: StringFilter<"File"> | string
     fileurl?: StringFilter<"File"> | string
+    publicid?: StringFilter<"File"> | string
     userId?: StringNullableFilter<"File"> | string | null
     createdAt?: DateTimeFilter<"File"> | Date | string
     updatedAt?: DateTimeFilter<"File"> | Date | string
@@ -6407,6 +6439,7 @@ export namespace Prisma {
   export type FileCreateWithoutSignatureInput = {
     id?: string
     fileurl: string
+    publicid: string
     createdAt?: Date | string
     updatedAt?: Date | string
     filename: string
@@ -6416,6 +6449,7 @@ export namespace Prisma {
   export type FileUncheckedCreateWithoutSignatureInput = {
     id?: string
     fileurl: string
+    publicid: string
     userId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -6484,6 +6518,7 @@ export namespace Prisma {
   export type FileUpdateWithoutSignatureInput = {
     id?: StringFieldUpdateOperationsInput | string
     fileurl?: StringFieldUpdateOperationsInput | string
+    publicid?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     filename?: StringFieldUpdateOperationsInput | string
@@ -6493,6 +6528,7 @@ export namespace Prisma {
   export type FileUncheckedUpdateWithoutSignatureInput = {
     id?: StringFieldUpdateOperationsInput | string
     fileurl?: StringFieldUpdateOperationsInput | string
+    publicid?: StringFieldUpdateOperationsInput | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6502,6 +6538,7 @@ export namespace Prisma {
   export type FileCreateManyUserInput = {
     id?: string
     fileurl: string
+    publicid: string
     createdAt?: Date | string
     updatedAt?: Date | string
     filename: string
@@ -6523,6 +6560,7 @@ export namespace Prisma {
   export type FileUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     fileurl?: StringFieldUpdateOperationsInput | string
+    publicid?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     filename?: StringFieldUpdateOperationsInput | string
@@ -6532,6 +6570,7 @@ export namespace Prisma {
   export type FileUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     fileurl?: StringFieldUpdateOperationsInput | string
+    publicid?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     filename?: StringFieldUpdateOperationsInput | string
@@ -6541,6 +6580,7 @@ export namespace Prisma {
   export type FileUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     fileurl?: StringFieldUpdateOperationsInput | string
+    publicid?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     filename?: StringFieldUpdateOperationsInput | string
