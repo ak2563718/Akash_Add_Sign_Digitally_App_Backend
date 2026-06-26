@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json())
 app.use(express.urlencoded({extended:false}));
 app.use(cors({
-    origin:[process.env.LOCALHOST_URL,'http://192.168.155.104:3000',process.env.FRONTEND_URL],
+    origin:[process.env.LOCALHOST_URL,'http://192.168.155.104:3000',process.env.DEPLOYMENT_URL,process.env.DOMIAN_URL],
     credentials:true,
 }))
 app.use(cookieParser());
