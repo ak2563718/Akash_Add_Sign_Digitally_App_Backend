@@ -224,7 +224,7 @@ export const finalizePdfWithSignatures = async (req, res) => {
 export const createShareLink = asyncHandler(async(req, res, next)=>{
   const userId = req.user;
   const fileId = req.params.id;
-  const creatLink = process.env.LOCALHOST_URL + '/uploadsign'+'/'+fileId;
+  const creatLink = process.env.DOMIAN_URL + '/uploadsign'+'/'+fileId;
   res.status(200).json({
     message:"shared link created successsfully",
     link:creatLink
